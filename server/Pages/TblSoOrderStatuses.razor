@@ -1,0 +1,37 @@
+﻿@page "/tbl-so-order-statuses"
+@layout MainLayout
+@inherits CanErp2.Pages.TblSoOrderStatusesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl So Order Statuses">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblSoOrderStatusesResult" TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatus_SEQ" Title="SO Status SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatus_ID" Title="SO Status ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatusText" Title="SO Status Text">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblSoOrderStatus">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblSoOrderStatus))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

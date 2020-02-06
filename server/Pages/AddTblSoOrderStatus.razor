@@ -1,0 +1,59 @@
+﻿@page "/add-tbl-so-order-status"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblSoOrderStatusComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblsoorderstatus" Visible="@(tblsoorderstatus != null)" TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="So Status Id" Component="SOStatus_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(tblsoorderstatus.SOStatus_ID)" Name="SOStatus_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="SOStatus_ID" Text="SOStatus_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="So Status Text" Component="SOStatusText" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="width: 100%" @bind-Value="@(tblsoorderstatus.SOStatusText)" Name="SOStatusText">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="255" style="width: 100%" @bind-Value="@(tblsoorderstatus.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

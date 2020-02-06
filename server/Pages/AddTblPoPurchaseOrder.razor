@@ -1,0 +1,179 @@
+﻿@page "/add-tbl-po-purchase-order"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblPoPurchaseOrderComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblpopurchaseorder" Visible="@(tblpopurchaseorder != null)" TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Po Id" Component="PO_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="display: block; width: 100%" @bind-Value="@(tblpopurchaseorder.PO_ID)" Name="PO_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PO_ID" Text="PO_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Po Date" Component="PODate" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(tblpopurchaseorder.PODate)" Name="PODate">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Address Book" Component="CreatedBy_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnAddressBooksResult" TextProperty="AddressBook_ID" ValueProperty="AddressBook_SEQ" Placeholder="Choose TblGnAddressBook" style="width: 100%" @bind-Value="@(tblpopurchaseorder.CreatedBy_FK)" Name="CreatedBy_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Po Order Status" Component="POStatus_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblPoOrderStatusesResult" TextProperty="POStatusText" ValueProperty="POStatus_ID" Placeholder="Choose TblPoOrderStatus" style="width: 100%" @bind-Value="@(tblpopurchaseorder.POStatus_FK)" Name="POStatus_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Po Vendor" Component="Vendor_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblPoVendorsResult" TextProperty="LastName" ValueProperty="Vendor_ID" Placeholder="Choose TblPoVendor" style="width: 100%" @bind-Value="@(tblpopurchaseorder.Vendor_FK)" Name="Vendor_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Description" Component="Description" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="150" style="width: 100%" @bind-Value="@(tblpopurchaseorder.Description)" Name="Description">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Incoterm" Component="Incoterm_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnIncotermsResult" TextProperty="Incoterm_Name" ValueProperty="Incoterm_ID" Placeholder="Choose TblGnIncoterm" style="width: 100%" @bind-Value="@(tblpopurchaseorder.Incoterm_FK)" Name="Incoterm_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Ship Vium" Component="ShipVia_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnShipViaResult" TextProperty="ShipVia_ID" ValueProperty="ShipVia_SEQ" Placeholder="Choose TblGnShipVium" style="width: 100%" @bind-Value="@(tblpopurchaseorder.ShipVia_FK)" Name="ShipVia_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Payment Term" Component="PaymentTerm_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnPaymentTermsResult" TextProperty="PaymentTerm_ID" ValueProperty="PaymentTerm_SEQ" Placeholder="Choose TblGnPaymentTerm" style="width: 100%" @bind-Value="@(tblpopurchaseorder.PaymentTerm_FK)" Name="PaymentTerm_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Payment Type" Component="PaymentType_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnPaymentTypesResult" TextProperty="PaymentType_ID" ValueProperty="PaymentType_SEQ" Placeholder="Choose TblGnPaymentType" style="width: 100%" @bind-Value="@(tblpopurchaseorder.PaymentType_FK)" Name="PaymentType_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Address Book" Component="Buyer_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnAddressBooksResult" TextProperty="AddressBook_ID" ValueProperty="AddressBook_SEQ" Placeholder="Choose TblGnAddressBook" style="width: 100%" @bind-Value="@(tblpopurchaseorder.Buyer_FK)" Name="Buyer_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tax Yn" Component="TaxYN" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblpopurchaseorder.TaxYN)" Name="TaxYN">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Taxt Rate" Component="TaxtRate" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblpopurchaseorder.TaxtRate)" Name="TaxtRate">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Department" Component="Department_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnDepartmentsResult" TextProperty="Deparment_Name" ValueProperty="Department_ID" Placeholder="Choose TblGnDepartment" style="width: 100%" @bind-Value="@(tblpopurchaseorder.Department_FK)" Name="Department_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Po Amount" Component="PO_Amount" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblpopurchaseorder.PO_Amount)" Name="PO_Amount">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

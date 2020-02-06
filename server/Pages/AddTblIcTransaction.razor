@@ -1,0 +1,213 @@
+﻿@page "/add-tbl-ic-transaction"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblIcTransactionComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblictransaction" Visible="@(tblictransaction != null)" TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trans No" Component="Trans_No" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="7" style="display: block; width: 100%" @bind-Value="@(tblictransaction.Trans_No)" Name="Trans_No">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Trans_No" Text="Trans_No is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Ic Transaction Type" Component="Trans_Code" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblIcTransactionTypesResult" TextProperty="Transaction_Name" ValueProperty="Transaction_ID" Placeholder="Choose TblIcTransactionType" style="display: block; width: 100%" @bind-Value="@(tblictransaction.Trans_Code)" Name="Trans_Code">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="Trans_Code" Text="Trans_Code is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trans Date" Component="Trans_Date" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(tblictransaction.Trans_Date)" Name="Trans_Date">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Ic Warehouse" Component="Warehouse_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblIcWarehousesResult" TextProperty="WarehouseName" ValueProperty="Warehouse_ID" Placeholder="Choose TblIcWarehouse" style="display: block; width: 100%" @bind-Value="@(tblictransaction.Warehouse_ID)" Name="Warehouse_ID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="Warehouse_ID" Text="Warehouse_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Gn Product" Component="Item_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblGnProductsResult" TextProperty="Product_ID" ValueProperty="Product_SEQ" Placeholder="Choose TblGnProduct" style="width: 100%" @bind-Value="@(tblictransaction.Item_FK)" Name="Item_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Reference No" Component="Reference_No" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="width: 100%" @bind-Value="@(tblictransaction.Reference_No)" Name="Reference_No">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Reference Date" Component="Reference_Date" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(tblictransaction.Reference_Date)" Name="Reference_Date">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Taxable" Component="Taxable" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenCheckBox TriState="true" @bind-Value="@(tblictransaction.Taxable)" Name="Taxable">
+                </RadzenCheckBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Cust Vend War Id" Component="Cust_Vend_WarID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="10" style="width: 100%" @bind-Value="@(tblictransaction.Cust_Vend_WarID)" Name="Cust_Vend_WarID">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trans Qty" Component="Trans_Qty" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblictransaction.Trans_Qty)" Name="Trans_Qty">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Uom" Component="UOM" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="2" style="width: 100%" @bind-Value="@(tblictransaction.UOM)" Name="UOM">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Trans Amount" Component="Trans_Amount" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblictransaction.Trans_Amount)" Name="Trans_Amount">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty On Hand Eob" Component="Qty_On_Hand_EOB" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblictransaction.Qty_On_Hand_EOB)" Name="Qty_On_Hand_EOB">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty On Order Eob" Component="Qty_On_Order_EOB" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblictransaction.Qty_On_Order_EOB)" Name="Qty_On_Order_EOB">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty On Allowed Eob" Component="Qty_On_Allowed_EOB" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblictransaction.Qty_On_Allowed_EOB)" Name="Qty_On_Allowed_EOB">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Gl Asset" Component="GL_Asset" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="7" style="width: 100%" @bind-Value="@(tblictransaction.GL_Asset)" Name="GL_Asset">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Gl Cogs" Component="GL_COGS" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="7" style="width: 100%" @bind-Value="@(tblictransaction.GL_COGS)" Name="GL_COGS">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Gl Sales" Component="GL_Sales" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="7" style="width: 100%" @bind-Value="@(tblictransaction.GL_Sales)" Name="GL_Sales">
+                </RadzenTextBox>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

@@ -1,0 +1,736 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Address Book Id",
+                              "component": "AddressBook_ID",
+                              "name": "AddressBook_IDLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "AddressBook_ID",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.AddressBook_ID}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "AddressBook_IDRequiredValidator",
+                              "component": "AddressBook_ID",
+                              "text": "AddressBook_ID is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Gn Address Book Type",
+                              "component": "AddressBookType_FK",
+                              "name": "AddressBookType_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblGnAddressBookTypesResult}",
+                              "textProperty": "AddressBookType_ID",
+                              "valueProperty": "AddressBookType_SEQ",
+                              "placeholder": "Choose TblGnAddressBookType",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "AddressBookType_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.AddressBookType_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Name",
+                              "component": "LastName",
+                              "name": "LastNameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "LastName",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.LastName}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "First Name",
+                              "component": "FirstName",
+                              "name": "FirstNameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "FirstName",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.FirstName}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Gn Gender",
+                              "component": "Gender_FK",
+                              "name": "Gender_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblGnGendersResult}",
+                              "textProperty": "Gender_ID",
+                              "valueProperty": "Gender_SEQ",
+                              "placeholder": "Choose TblGnGender",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "Gender_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.Gender_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Dob",
+                              "component": "DOB",
+                              "name": "DOBLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "MM/dd/yyyy",
+                              "type": "datepicker",
+                              "name": "DOB",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.DOB}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Origin",
+                              "component": "Origin",
+                              "name": "OriginLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "Origin",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.Origin}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Id Number",
+                              "component": "IDNumber",
+                              "name": "IDNumberLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 20,
+                              "type": "textbox",
+                              "name": "IDNumber",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.IDNumber}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tax Id Number",
+                              "component": "TaxIDNumber",
+                              "name": "TaxIDNumberLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 10,
+                              "type": "textbox",
+                              "name": "TaxIDNumber",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.TaxIDNumber}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Organization Name",
+                              "component": "OrganizationName",
+                              "name": "OrganizationNameLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 100,
+                              "type": "textbox",
+                              "name": "OrganizationName",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.OrganizationName}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Job Position",
+                              "component": "JobPosition",
+                              "name": "JobPositionLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 50,
+                              "type": "textbox",
+                              "name": "JobPosition",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.JobPosition}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Address",
+                              "component": "Address",
+                              "name": "AddressLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 100,
+                              "type": "textbox",
+                              "name": "Address",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.Address}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Hp Tinh Tp",
+                              "component": "City_FK",
+                              "name": "City_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblHpTinhTpsResult}",
+                              "textProperty": "TinhTP_Name",
+                              "valueProperty": "TinhTP_ID",
+                              "placeholder": "Choose TblHpTinhTp",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "City_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblgnaddressbook.City_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblGnAddressBook",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblGnAddressBook",
+                        "parameters": [
+                          {
+                            "name": "AddressBook_SEQ",
+                            "value": "${parameters.AddressBook_SEQ}"
+                          },
+                          {
+                            "name": "TblGnAddressBook",
+                            "value": "${tblgnaddressbook}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblgnaddressbook}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblGnAddressBook",
+                  "data": "${tblgnaddressbook}",
+                  "visible": "${tblgnaddressbook != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblGnAddressBookByAddressBook_SEQ",
+        "parameters": [
+          {
+            "name": "AddressBook_SEQ",
+            "value": "${parameters.AddressBook_SEQ}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblgnaddressbook",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErp2.Models.DbAtVdc2.TblGnAddressBook"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblGnAddressBookTypes",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblGnAddressBookTypesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblGnAddressBookType>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblGnGenders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblGnGendersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblGnGender>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblHpTinhTps",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblHpTinhTpsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblHpTinhTp>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Gn Address Book",
+  "layout": "Main"
+}

@@ -1,0 +1,74 @@
+﻿@page "/tbl-ic-transactions"
+@layout MainLayout
+@inherits CanErp2.Pages.TblIcTransactionsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Ic Transactions">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblIcTransactionsResult" TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Trans_No" Title="Trans No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Trans_Code" SortProperty="TblIcTransactionType.Transaction_Name" FilterProperty="TblIcTransactionType.Transaction_Name" Title="Tbl Ic Transaction Type">
+              <Template Context="data">
+              @(data.TblIcTransactionType?.Transaction_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Trans_Date" FormatString="{0:dd/MM/yyyy}" Title="Trans Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Warehouse_ID" SortProperty="TblIcWarehouse.WarehouseName" FilterProperty="TblIcWarehouse.WarehouseName" Title="Tbl Ic Warehouse">
+              <Template Context="data">
+              @(data.TblIcWarehouse?.WarehouseName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Item_FK" SortProperty="TblGnProduct.Product_ID" FilterProperty="TblGnProduct.Product_ID" Title="Tbl Gn Product">
+              <Template Context="data">
+              @(data.TblGnProduct?.Product_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Reference_No" Title="Reference No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Reference_Date" FormatString="{0:dd/MM/yyyy}" Title="Reference Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Taxable" Title="Taxable">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Cust_Vend_WarID" Title="Cust Vend War ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Trans_Qty" Title="Trans Qty">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="UOM" Title="UOM">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Trans_Amount" Title="Trans Amount">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Qty_On_Hand_EOB" Title="Qty On Hand EOB">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Qty_On_Order_EOB" Title="Qty On Order EOB">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="Qty_On_Allowed_EOB" Title="Qty On Allowed EOB">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="GL_Asset" Title="GL Asset">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="GL_COGS" Title="GL COGS">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Property="GL_Sales" Title="GL Sales">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcTransaction" Context="canErp2ModelsDbAtVdc2TblIcTransaction" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblIcTransaction">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblIcTransaction))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

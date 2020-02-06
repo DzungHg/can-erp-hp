@@ -1,0 +1,365 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Ic Inventories"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-ic-inventory",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblIcInventoriesResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "Inventory_SEQ",
+                            "value": "${event.Inventory_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-ic-inventory",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "Inventory_SEQ",
+                      "title": "Inventory SEQ"
+                    },
+                    {
+                      "property": "Warehouse_FK",
+                      "sortProperty": "TblIcWarehouse.WarehouseName",
+                      "filterProperty": "TblIcWarehouse.WarehouseName",
+                      "template": "${data.TblIcWarehouse?.WarehouseName}",
+                      "title": "Tbl Ic Warehouse"
+                    },
+                    {
+                      "property": "Category_FK",
+                      "sortProperty": "TblIcCategory.CategoryText",
+                      "filterProperty": "TblIcCategory.CategoryText",
+                      "template": "${data.TblIcCategory?.CategoryText}",
+                      "title": "Tbl Ic Category"
+                    },
+                    {
+                      "property": "Classifi_FK",
+                      "sortProperty": "TblIcClassification.Classifi_Name",
+                      "filterProperty": "TblIcClassification.Classifi_Name",
+                      "template": "${data.TblIcClassification?.Classifi_Name}",
+                      "title": "Tbl Ic Classification"
+                    },
+                    {
+                      "property": "Item_FK",
+                      "sortProperty": "TblGnProduct.Product_ID",
+                      "filterProperty": "TblGnProduct.Product_ID",
+                      "template": "${data.TblGnProduct?.Product_ID}",
+                      "title": "Tbl Gn Product"
+                    },
+                    {
+                      "property": "Product_Code",
+                      "title": "Product Code"
+                    },
+                    {
+                      "property": "ProductDesc",
+                      "title": "Product Desc"
+                    },
+                    {
+                      "property": "FixAsset",
+                      "title": "Fix Asset"
+                    },
+                    {
+                      "property": "Unit_FK",
+                      "sortProperty": "TblIcUnit.UnitText",
+                      "filterProperty": "TblIcUnit.UnitText",
+                      "template": "${data.TblIcUnit?.UnitText}",
+                      "title": "Tbl Ic Unit"
+                    },
+                    {
+                      "property": "QuantityPerUnit",
+                      "title": "Quantity Per Unit"
+                    },
+                    {
+                      "property": "Location",
+                      "title": "Location"
+                    },
+                    {
+                      "property": "Taxable",
+                      "title": "Taxable"
+                    },
+                    {
+                      "property": "TaxRate",
+                      "title": "Tax Rate"
+                    },
+                    {
+                      "property": "ROP",
+                      "title": "ROP"
+                    },
+                    {
+                      "property": "EOQ",
+                      "title": "EOQ"
+                    },
+                    {
+                      "property": "UnitPrice",
+                      "title": "Unit Price"
+                    },
+                    {
+                      "property": "GL_Asset",
+                      "title": "GL Asset"
+                    },
+                    {
+                      "property": "GL_COGS",
+                      "title": "GL COGS"
+                    },
+                    {
+                      "property": "GL_Sales",
+                      "title": "GL Sales"
+                    },
+                    {
+                      "property": "GL_NonTaxSales",
+                      "title": "GL Non Tax Sales"
+                    },
+                    {
+                      "property": "LastSaleDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Sale Date"
+                    },
+                    {
+                      "property": "LastPODate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last PO Date"
+                    },
+                    {
+                      "property": "LastReceiptDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Receipt Date"
+                    },
+                    {
+                      "property": "Leadtime",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Leadtime"
+                    },
+                    {
+                      "property": "LastCost",
+                      "title": "Last Cost"
+                    },
+                    {
+                      "property": "EverageCost",
+                      "title": "Everage Cost"
+                    },
+                    {
+                      "property": "Qty_On_Order",
+                      "title": "Qty On Order"
+                    },
+                    {
+                      "property": "Qty_In_Stock",
+                      "title": "Qty In Stock"
+                    },
+                    {
+                      "property": "Qty_On_Hand",
+                      "title": "Qty On Hand"
+                    },
+                    {
+                      "property": "Qty_Allocated",
+                      "title": "Qty Allocated"
+                    },
+                    {
+                      "property": "TotalInventory",
+                      "title": "Total Inventory"
+                    },
+                    {
+                      "property": "MTD_Qty_Sold",
+                      "title": "MTD Qty Sold"
+                    },
+                    {
+                      "property": "MTD_Gross_Sales",
+                      "title": "MTD Gross Sales"
+                    },
+                    {
+                      "property": "MTD_COGS",
+                      "title": "MTD COGS"
+                    },
+                    {
+                      "property": "YTD_Qty_Sold",
+                      "title": "YTD Qty Sold"
+                    },
+                    {
+                      "property": "YTD_Gross_Sales",
+                      "title": "YTD Gross Sales"
+                    },
+                    {
+                      "property": "YTD_COGS",
+                      "title": "YTD COGS"
+                    },
+                    {
+                      "property": "YTD_Qty_Returned",
+                      "title": "YTD Qty Returned"
+                    },
+                    {
+                      "property": "LTD_Qty_Sold",
+                      "title": "LTD Qty Sold"
+                    },
+                    {
+                      "property": "LTD_Gross_Sales",
+                      "title": "LTD Gross Sales"
+                    },
+                    {
+                      "property": "LTD_COGS",
+                      "title": "LTD COGS"
+                    },
+                    {
+                      "property": "NetGrossRate",
+                      "title": "Net Gross Rate"
+                    },
+                    {
+                      "property": "VendorNumber_FK",
+                      "title": "Vendor Number FK"
+                    },
+                    {
+                      "property": "LastUpdatedDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Updated Date"
+                    },
+                    {
+                      "property": "LastUpdatedBy_FK",
+                      "title": "Last Updated By FK"
+                    },
+                    {
+                      "property": "Notes",
+                      "title": "Notes"
+                    },
+                    {
+                      "property": "Inactive",
+                      "title": "Inactive"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblIcInventory",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblIcInventory",
+                                "parameters": [
+                                  {
+                                    "name": "Inventory_SEQ",
+                                    "value": "${data.Inventory_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblIcInventory"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblIcInventories",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcInventoriesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcInventory>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Ic Inventories",
+  "layout": "Main"
+}

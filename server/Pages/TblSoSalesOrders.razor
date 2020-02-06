@@ -1,0 +1,114 @@
+﻿@page "/tbl-so-sales-orders"
+@layout MainLayout
+@inherits CanErp2.Pages.TblSoSalesOrdersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl So Sales Orders">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblSoSalesOrdersResult" TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="SO_SEQ" Title="SO SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="SO_ID" Title="SO ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="SODate" FormatString="{0:dd/MM/yyyy}" Title="SO Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="CreatedBy_FK" Title="Created By FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="SOStatus_FK" SortProperty="TblSoOrderStatus.SOStatus_ID" FilterProperty="TblSoOrderStatus.SOStatus_ID" Title="Tbl So Order Status">
+              <Template Context="data">
+              @(data.TblSoOrderStatus?.SOStatus_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Customer_FK" SortProperty="TblSoCustomer.Customer_ID" FilterProperty="TblSoCustomer.Customer_ID" Title="Tbl So Customer">
+              <Template Context="data">
+              @(data.TblSoCustomer?.Customer_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="CustomerPONumber" Title="Customer PO Number">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="CustomerPODate" FormatString="{0:dd/MM/yyyy}" Title="Customer PO Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="BillTo_FK" Title="Bill To FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="ShipTo_FK" SortProperty="TblGnShipVium.ShipVia_ID" FilterProperty="TblGnShipVium.ShipVia_ID" Title="Tbl Gn Ship Vium">
+              <Template Context="data">
+              @(data.TblGnShipVium?.ShipVia_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Attention" Title="Attention">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="ShipVia_FK" Title="Ship Via FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="ActualShipDate" FormatString="{0:dd/MM/yyyy}" Title="Actual Ship Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="ExpectedShipDate" FormatString="{0:dd/MM/yyyy}" Title="Expected Ship Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Shipper_FK" Title="Shipper FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="PaymentTerm_FK" SortProperty="TblGnPaymentTerm.PaymentTerm_ID" FilterProperty="TblGnPaymentTerm.PaymentTerm_ID" Title="Tbl Gn Payment Term">
+              <Template Context="data">
+              @(data.TblGnPaymentTerm?.PaymentTerm_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="PaymentType_FK" SortProperty="TblGnPaymentType.PaymentType_ID" FilterProperty="TblGnPaymentType.PaymentType_ID" Title="Tbl Gn Payment Type">
+              <Template Context="data">
+              @(data.TblGnPaymentType?.PaymentType_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="SalesPersion_FK" Title="Sales Persion FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Commission" Title="Commission">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Pick_No" Title="Pick No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Ship_No" Title="Ship No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="TaxYN" Title="Tax YN">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="TaxtRate" Title="Taxt Rate">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Subtotal" Title="Subtotal">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Taxt_Amount" Title="Taxt Amount">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Discount_Amt" Title="Discount Amt">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Freight" Title="Freight">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Total_Order" Title="Total Order">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="ChangeLong" Title="Change Long">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Notes" Title="Notes">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="LastUpdatedDate" FormatString="{0:dd/MM/yyyy}" Title="Last Updated Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="LastUpdatedBy_FK" Title="Last Updated By FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Inactive" Title="Inactive">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Property="Sequence" Title="Sequence">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoSalesOrder" Context="canErp2ModelsDbAtVdc2TblSoSalesOrder" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblSoSalesOrder">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblSoSalesOrder))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

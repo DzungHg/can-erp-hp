@@ -1,0 +1,317 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl So Sales Orders"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-so-sales-order",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblSoSalesOrdersResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "SO_SEQ",
+                            "value": "${event.SO_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-so-sales-order",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "SO_SEQ",
+                      "title": "SO SEQ"
+                    },
+                    {
+                      "property": "SO_ID",
+                      "title": "SO ID"
+                    },
+                    {
+                      "property": "SODate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "SO Date"
+                    },
+                    {
+                      "property": "CreatedBy_FK",
+                      "title": "Created By FK"
+                    },
+                    {
+                      "property": "SOStatus_FK",
+                      "sortProperty": "TblSoOrderStatus.SOStatus_ID",
+                      "filterProperty": "TblSoOrderStatus.SOStatus_ID",
+                      "template": "${data.TblSoOrderStatus?.SOStatus_ID}",
+                      "title": "Tbl So Order Status"
+                    },
+                    {
+                      "property": "Customer_FK",
+                      "sortProperty": "TblSoCustomer.Customer_ID",
+                      "filterProperty": "TblSoCustomer.Customer_ID",
+                      "template": "${data.TblSoCustomer?.Customer_ID}",
+                      "title": "Tbl So Customer"
+                    },
+                    {
+                      "property": "CustomerPONumber",
+                      "title": "Customer PO Number"
+                    },
+                    {
+                      "property": "CustomerPODate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Customer PO Date"
+                    },
+                    {
+                      "property": "BillTo_FK",
+                      "title": "Bill To FK"
+                    },
+                    {
+                      "property": "ShipTo_FK",
+                      "sortProperty": "TblGnShipVium.ShipVia_ID",
+                      "filterProperty": "TblGnShipVium.ShipVia_ID",
+                      "template": "${data.TblGnShipVium?.ShipVia_ID}",
+                      "title": "Tbl Gn Ship Vium"
+                    },
+                    {
+                      "property": "Attention",
+                      "title": "Attention"
+                    },
+                    {
+                      "property": "ShipVia_FK",
+                      "title": "Ship Via FK"
+                    },
+                    {
+                      "property": "ActualShipDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Actual Ship Date"
+                    },
+                    {
+                      "property": "ExpectedShipDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Expected Ship Date"
+                    },
+                    {
+                      "property": "Shipper_FK",
+                      "title": "Shipper FK"
+                    },
+                    {
+                      "property": "PaymentTerm_FK",
+                      "sortProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "filterProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "template": "${data.TblGnPaymentTerm?.PaymentTerm_ID}",
+                      "title": "Tbl Gn Payment Term"
+                    },
+                    {
+                      "property": "PaymentType_FK",
+                      "sortProperty": "TblGnPaymentType.PaymentType_ID",
+                      "filterProperty": "TblGnPaymentType.PaymentType_ID",
+                      "template": "${data.TblGnPaymentType?.PaymentType_ID}",
+                      "title": "Tbl Gn Payment Type"
+                    },
+                    {
+                      "property": "SalesPersion_FK",
+                      "title": "Sales Persion FK"
+                    },
+                    {
+                      "property": "Commission",
+                      "title": "Commission"
+                    },
+                    {
+                      "property": "Pick_No",
+                      "title": "Pick No"
+                    },
+                    {
+                      "property": "Ship_No",
+                      "title": "Ship No"
+                    },
+                    {
+                      "property": "TaxYN",
+                      "title": "Tax YN"
+                    },
+                    {
+                      "property": "TaxtRate",
+                      "title": "Taxt Rate"
+                    },
+                    {
+                      "property": "Subtotal",
+                      "title": "Subtotal"
+                    },
+                    {
+                      "property": "Taxt_Amount",
+                      "title": "Taxt Amount"
+                    },
+                    {
+                      "property": "Discount_Amt",
+                      "title": "Discount Amt"
+                    },
+                    {
+                      "property": "Freight",
+                      "title": "Freight"
+                    },
+                    {
+                      "property": "Total_Order",
+                      "title": "Total Order"
+                    },
+                    {
+                      "property": "Description",
+                      "title": "Description"
+                    },
+                    {
+                      "property": "ChangeLong",
+                      "title": "Change Long"
+                    },
+                    {
+                      "property": "Notes",
+                      "title": "Notes"
+                    },
+                    {
+                      "property": "LastUpdatedDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Updated Date"
+                    },
+                    {
+                      "property": "LastUpdatedBy_FK",
+                      "title": "Last Updated By FK"
+                    },
+                    {
+                      "property": "Inactive",
+                      "title": "Inactive"
+                    },
+                    {
+                      "property": "Sequence",
+                      "title": "Sequence"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblSoSalesOrder",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblSoSalesOrder",
+                                "parameters": [
+                                  {
+                                    "name": "SO_SEQ",
+                                    "value": "${data.SO_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoSalesOrder"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblSoSalesOrders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblSoSalesOrdersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblSoSalesOrder>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl So Sales Orders",
+  "layout": "Main"
+}

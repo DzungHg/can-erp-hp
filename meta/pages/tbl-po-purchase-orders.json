@@ -1,0 +1,245 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Po Purchase Orders"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-po-purchase-order",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblPoPurchaseOrdersResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "PO_ID",
+                            "value": "${event.PO_ID}"
+                          }
+                        ],
+                        "path": "edit-tbl-po-purchase-order",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "PO_ID",
+                      "title": "PO ID"
+                    },
+                    {
+                      "property": "PODate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "PO Date"
+                    },
+                    {
+                      "property": "CreatedBy_FK",
+                      "sortProperty": "TblGnAddressBook.AddressBook_ID",
+                      "filterProperty": "TblGnAddressBook.AddressBook_ID",
+                      "template": "${data.TblGnAddressBook?.AddressBook_ID}",
+                      "title": "Tbl Gn Address Book"
+                    },
+                    {
+                      "property": "POStatus_FK",
+                      "sortProperty": "TblPoOrderStatus.POStatusText",
+                      "filterProperty": "TblPoOrderStatus.POStatusText",
+                      "template": "${data.TblPoOrderStatus?.POStatusText}",
+                      "title": "Tbl Po Order Status"
+                    },
+                    {
+                      "property": "Vendor_FK",
+                      "sortProperty": "TblPoVendor.LastName",
+                      "filterProperty": "TblPoVendor.LastName",
+                      "template": "${data.TblPoVendor?.LastName}",
+                      "title": "Tbl Po Vendor"
+                    },
+                    {
+                      "property": "Description",
+                      "title": "Description"
+                    },
+                    {
+                      "property": "Incoterm_FK",
+                      "sortProperty": "TblGnIncoterm.Incoterm_Name",
+                      "filterProperty": "TblGnIncoterm.Incoterm_Name",
+                      "template": "${data.TblGnIncoterm?.Incoterm_Name}",
+                      "title": "Tbl Gn Incoterm"
+                    },
+                    {
+                      "property": "ShipVia_FK",
+                      "sortProperty": "TblGnShipVium.ShipVia_ID",
+                      "filterProperty": "TblGnShipVium.ShipVia_ID",
+                      "template": "${data.TblGnShipVium?.ShipVia_ID}",
+                      "title": "Tbl Gn Ship Vium"
+                    },
+                    {
+                      "property": "PaymentTerm_FK",
+                      "sortProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "filterProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "template": "${data.TblGnPaymentTerm?.PaymentTerm_ID}",
+                      "title": "Tbl Gn Payment Term"
+                    },
+                    {
+                      "property": "PaymentType_FK",
+                      "sortProperty": "TblGnPaymentType.PaymentType_ID",
+                      "filterProperty": "TblGnPaymentType.PaymentType_ID",
+                      "template": "${data.TblGnPaymentType?.PaymentType_ID}",
+                      "title": "Tbl Gn Payment Type"
+                    },
+                    {
+                      "property": "Buyer_FK",
+                      "sortProperty": "TblGnAddressBook1.AddressBook_ID",
+                      "filterProperty": "TblGnAddressBook1.AddressBook_ID",
+                      "template": "${data.TblGnAddressBook1?.AddressBook_ID}",
+                      "title": "Tbl Gn Address Book"
+                    },
+                    {
+                      "property": "TaxYN",
+                      "title": "Tax YN"
+                    },
+                    {
+                      "property": "TaxtRate",
+                      "title": "Taxt Rate"
+                    },
+                    {
+                      "property": "Department_FK",
+                      "sortProperty": "TblGnDepartment.Deparment_Name",
+                      "filterProperty": "TblGnDepartment.Deparment_Name",
+                      "template": "${data.TblGnDepartment?.Deparment_Name}",
+                      "title": "Tbl Gn Department"
+                    },
+                    {
+                      "property": "PO_Amount",
+                      "title": "PO Amount"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblPoPurchaseOrder",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblPoPurchaseOrder",
+                                "parameters": [
+                                  {
+                                    "name": "PO_ID",
+                                    "value": "${data.PO_ID}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblPoPurchaseOrders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblPoPurchaseOrdersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Po Purchase Orders",
+  "layout": "Main"
+}

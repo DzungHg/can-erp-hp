@@ -1,0 +1,81 @@
+﻿@page "/add-tbl-po-rr-order-detail"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblPoRrOrderDetailComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblporrorderdetail" Visible="@(tblporrorderdetail != null)" TItem="CanErp2.Models.DbAtVdc2.TblPoRrOrderDetail" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Po Rec Report" Component="RR_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblPoRecReportsResult" TextProperty="PO_ID" ValueProperty="RR_No" Placeholder="Choose TblPoRecReport" style="display: block; width: 100%" @bind-Value="@(tblporrorderdetail.RR_FK)" Name="RR_FK">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="RR_FK" Text="RR_FK is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Ic Inventory" Component="Inventory_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblIcInventoriesResult" TextProperty="Warehouse_FK" ValueProperty="Inventory_SEQ" Placeholder="Choose TblIcInventory" style="display: block; width: 100%" @bind-Value="@(tblporrorderdetail.Inventory_FK)" Name="Inventory_FK">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="Inventory_FK" Text="Inventory_FK is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Unit Price" Component="Unit_Price" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblporrorderdetail.Unit_Price)" Name="Unit_Price">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty Ordered" Component="QtyOrdered" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblporrorderdetail.QtyOrdered)" Name="QtyOrdered">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty Received" Component="QtyReceived" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblporrorderdetail.QtyReceived)" Name="QtyReceived">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

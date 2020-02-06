@@ -1,0 +1,235 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Po Rec Reports"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-po-rec-report",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblPoRecReportsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "RR_No",
+                            "value": "${event.RR_No}"
+                          }
+                        ],
+                        "path": "edit-tbl-po-rec-report",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "RR_No",
+                      "title": "RR No"
+                    },
+                    {
+                      "property": "RRDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "RR Date"
+                    },
+                    {
+                      "property": "CreatedBy_FK",
+                      "sortProperty": "TblGnAddressBook.AddressBook_ID",
+                      "filterProperty": "TblGnAddressBook.AddressBook_ID",
+                      "template": "${data.TblGnAddressBook?.AddressBook_ID}",
+                      "title": "Tbl Gn Address Book"
+                    },
+                    {
+                      "property": "PO_ID",
+                      "title": "PO ID"
+                    },
+                    {
+                      "property": "POStatus_FK",
+                      "title": "PO Status FK"
+                    },
+                    {
+                      "property": "PODate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "PO Date"
+                    },
+                    {
+                      "property": "Vendor_FK",
+                      "sortProperty": "TblPoVendor.LastName",
+                      "filterProperty": "TblPoVendor.LastName",
+                      "template": "${data.TblPoVendor?.LastName}",
+                      "title": "Tbl Po Vendor"
+                    },
+                    {
+                      "property": "Description",
+                      "title": "Description"
+                    },
+                    {
+                      "property": "Invoice_No",
+                      "title": "Invoice No"
+                    },
+                    {
+                      "property": "Invoice_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Invoice Date"
+                    },
+                    {
+                      "property": "Ship_No",
+                      "title": "Ship No"
+                    },
+                    {
+                      "property": "Ship_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Ship Date"
+                    },
+                    {
+                      "property": "Receiver_FK",
+                      "title": "Receiver FK"
+                    },
+                    {
+                      "property": "BillOf_Loading_No",
+                      "title": "Bill Of Loading No"
+                    },
+                    {
+                      "property": "PO_Amount",
+                      "title": "PO Amount"
+                    },
+                    {
+                      "property": "Inactive",
+                      "title": "Inactive"
+                    },
+                    {
+                      "property": "Warhoused",
+                      "title": "Warhoused"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblPoRecReport",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblPoRecReport",
+                                "parameters": [
+                                  {
+                                    "name": "RR_No",
+                                    "value": "${data.RR_No}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblPoRecReport"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblPoRecReports",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblPoRecReportsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblPoRecReport>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Po Rec Reports",
+  "layout": "Main"
+}

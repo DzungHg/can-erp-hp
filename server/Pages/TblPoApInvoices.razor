@@ -1,0 +1,52 @@
+﻿@page "/tbl-po-ap-invoices"
+@layout MainLayout
+@inherits CanErp2.Pages.TblPoApInvoicesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Po Ap Invoices">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoApInvoicesResult" TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Vendor_ID" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
+              <Template Context="data">
+              @(data.TblPoVendor?.LastName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Invoice_No" Title="Invoice No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Invoice_Date" FormatString="{0:dd/MM/yyyy}" Title="Invoice Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="PO_ID" Title="PO ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="PO_Date" FormatString="{0:dd/MM/yyyy}" Title="PO Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Invoice_Amount" Title="Invoice Amount">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Discount_Amount" Title="Discount Amount">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Due_Date" FormatString="{0:dd/MM/yyyy}" Title="Due Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Property="Paid" Title="Paid">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoice" Context="canErp2ModelsDbAtVdc2TblPoApInvoice" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblPoApInvoice">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoApInvoice))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

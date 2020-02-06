@@ -1,0 +1,214 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Po Cash Disbursements"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-po-cash-disbursement",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblPoCashDisbursementsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "PO_CashDisb_No",
+                            "value": "${event.PO_CashDisb_No}"
+                          }
+                        ],
+                        "path": "edit-tbl-po-cash-disbursement",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "PO_CashDisb_No",
+                      "title": "PO Cash Disb No"
+                    },
+                    {
+                      "property": "PO_CashDisb_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "PO Cash Disb Date"
+                    },
+                    {
+                      "property": "Customer_FK",
+                      "sortProperty": "TblGnAddressBook.AddressBook_ID",
+                      "filterProperty": "TblGnAddressBook.AddressBook_ID",
+                      "template": "${data.TblGnAddressBook?.AddressBook_ID}",
+                      "title": "Tbl Gn Address Book"
+                    },
+                    {
+                      "property": "Description",
+                      "title": "Description"
+                    },
+                    {
+                      "property": "Disbursement_Type",
+                      "title": "Disbursement Type"
+                    },
+                    {
+                      "property": "Gross_Invt_Amt",
+                      "title": "Gross Invt Amt"
+                    },
+                    {
+                      "property": "Discount_Invt_Amt",
+                      "title": "Discount Invt Amt"
+                    },
+                    {
+                      "property": "Check_No",
+                      "title": "Check No"
+                    },
+                    {
+                      "property": "Check_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Check Date"
+                    },
+                    {
+                      "property": "Check_Amount",
+                      "title": "Check Amount"
+                    },
+                    {
+                      "property": "DebiAccount",
+                      "title": "Debi Account"
+                    },
+                    {
+                      "property": "CreditAccount",
+                      "title": "Credit Account"
+                    },
+                    {
+                      "property": "Payment",
+                      "title": "Payment"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblPoCashDisbursement",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblPoCashDisbursement",
+                                "parameters": [
+                                  {
+                                    "name": "PO_CashDisb_No",
+                                    "value": "${data.PO_CashDisb_No}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblPoCashDisbursement"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblPoCashDisbursements",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblPoCashDisbursementsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblPoCashDisbursement>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Po Cash Disbursements",
+  "layout": "Main"
+}

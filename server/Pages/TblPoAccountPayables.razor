@@ -1,0 +1,53 @@
+﻿@page "/tbl-po-account-payables"
+@layout MainLayout
+@inherits CanErp2.Pages.TblPoAccountPayablesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Po Account Payables">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoAccountPayablesResult" TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="AP_No" Title="AP No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Vendor_FK" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
+              <Template Context="data">
+              @(data.TblPoVendor?.LastName)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Transact_No" Title="Transact No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Record_Code" Title="Record Code">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="PO_No" Title="PO No">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Transact_Date" FormatString="{0:dd/MM/yyyy}" Title="Transact Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Amount" Title="Amount">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Property="Department_FK" SortProperty="TblGnDepartment.Deparment_Name" FilterProperty="TblGnDepartment.Deparment_Name" Title="Tbl Gn Department">
+              <Template Context="data">
+              @(data.TblGnDepartment?.Deparment_Name)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoAccountPayable" Context="canErp2ModelsDbAtVdc2TblPoAccountPayable" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblPoAccountPayable">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoAccountPayable))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

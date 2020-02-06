@@ -1,0 +1,61 @@
+﻿@page "/edit-tbl-gn-payment-term/{PaymentTerm_SEQ}"
+@layout MainLayout
+@inherits CanErp2.Pages.EditTblGnPaymentTermComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div style="" class="row">
+      <div class="col-md-9">
+        <RadzenLabel style="font-weight: bold" Text="Item no longer available." Visible="@(!canEdit)">
+        </RadzenLabel>
+      </div>
+      <div class="col-md-3">
+        <RadzenButton ButtonStyle="ButtonStyle.Secondary" style="margin-bottom: 20px" Text="Close" Visible="@(!canEdit)" Click="@CloseButtonClick">
+        </RadzenButton>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentTerm" Data="@tblgnpaymentterm" Visible="@(tblgnpaymentterm != null && canEdit)" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Payment Term Id" Component="PaymentTerm_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(tblgnpaymentterm.PaymentTerm_ID)" Name="PaymentTerm_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PaymentTerm_ID" Text="PaymentTerm_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Payment Term Text" Component="PaymentTermText" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="80" style="display: block; width: 100%" @bind-Value="@(tblgnpaymentterm.PaymentTermText)" Name="PaymentTermText">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PaymentTermText" Text="PaymentTermText is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button3Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

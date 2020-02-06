@@ -1,0 +1,51 @@
+﻿@page "/add-tbl-gn-payment-type"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblGnPaymentTypeComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblgnpaymenttype" Visible="@(tblgnpaymenttype != null)" TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Payment Type Id" Component="PaymentType_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="20" style="display: block; width: 100%" @bind-Value="@(tblgnpaymenttype.PaymentType_ID)" Name="PaymentType_ID">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PaymentType_ID" Text="PaymentType_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Payment Type Text" Component="PaymentTypeText" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="50" style="display: block; width: 100%" @bind-Value="@(tblgnpaymenttype.PaymentTypeText)" Name="PaymentTypeText">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="PaymentTypeText" Text="PaymentTypeText is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

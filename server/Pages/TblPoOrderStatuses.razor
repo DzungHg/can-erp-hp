@@ -1,0 +1,35 @@
+﻿@page "/tbl-po-order-statuses"
+@layout MainLayout
+@inherits CanErp2.Pages.TblPoOrderStatusesComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Po Order Statuses">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoOrderStatusesResult" TItem="CanErp2.Models.DbAtVdc2.TblPoOrderStatus" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoOrderStatus" Context="canErp2ModelsDbAtVdc2TblPoOrderStatus" Property="POStatus_ID" Title="PO Status ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoOrderStatus" Context="canErp2ModelsDbAtVdc2TblPoOrderStatus" Property="POStatusText" Title="PO Status Text">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoOrderStatus" Context="canErp2ModelsDbAtVdc2TblPoOrderStatus" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoOrderStatus" Context="canErp2ModelsDbAtVdc2TblPoOrderStatus" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblPoOrderStatus">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoOrderStatus))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

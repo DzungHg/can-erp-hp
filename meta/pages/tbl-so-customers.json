@@ -1,0 +1,292 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl So Customers"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-so-customer",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblSoCustomersResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "Customer_SEQ",
+                            "value": "${event.Customer_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-so-customer",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "Customer_SEQ",
+                      "title": "Customer SEQ"
+                    },
+                    {
+                      "property": "Customer_ID",
+                      "title": "Customer ID"
+                    },
+                    {
+                      "property": "LastName",
+                      "title": "Last Name"
+                    },
+                    {
+                      "property": "FirstName",
+                      "title": "First Name"
+                    },
+                    {
+                      "property": "CustomerAdressBook_FK",
+                      "sortProperty": "TblGnAddressBook.AddressBook_ID",
+                      "filterProperty": "TblGnAddressBook.AddressBook_ID",
+                      "template": "${data.TblGnAddressBook?.AddressBook_ID}",
+                      "title": "Tbl Gn Address Book"
+                    },
+                    {
+                      "property": "CreditLimit",
+                      "title": "Credit Limit"
+                    },
+                    {
+                      "property": "LastRevisedCreditLimitDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Revised Credit Limit Date"
+                    },
+                    {
+                      "property": "PaymentTerm_FK",
+                      "sortProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "filterProperty": "TblGnPaymentTerm.PaymentTerm_ID",
+                      "template": "${data.TblGnPaymentTerm?.PaymentTerm_ID}",
+                      "title": "Tbl Gn Payment Term"
+                    },
+                    {
+                      "property": "PaymentType_FK",
+                      "sortProperty": "TblGnPaymentType.PaymentType_ID",
+                      "filterProperty": "TblGnPaymentType.PaymentType_ID",
+                      "template": "${data.TblGnPaymentType?.PaymentType_ID}",
+                      "title": "Tbl Gn Payment Type"
+                    },
+                    {
+                      "property": "DiscountPercent",
+                      "title": "Discount Percent"
+                    },
+                    {
+                      "property": "Current_MTD_Sales",
+                      "title": "Current MTD Sales"
+                    },
+                    {
+                      "property": "Current_MTD_Returns",
+                      "title": "Current MTD Returns"
+                    },
+                    {
+                      "property": "YTD_GrossSales",
+                      "title": "YTD Gross Sales"
+                    },
+                    {
+                      "property": "YTD_Returns",
+                      "title": "YTD Returns"
+                    },
+                    {
+                      "property": "YTD_COGS",
+                      "title": "YTD COGS"
+                    },
+                    {
+                      "property": "LYR_GrossSales",
+                      "title": "LYR Gross Sales"
+                    },
+                    {
+                      "property": "LYR_COGS",
+                      "title": "LYR COGS"
+                    },
+                    {
+                      "property": "LastAmountSales",
+                      "title": "Last Amount Sales"
+                    },
+                    {
+                      "property": "SalesPersonAdressBook_FK",
+                      "title": "Sales Person Adress Book FK"
+                    },
+                    {
+                      "property": "CommissionPercent",
+                      "title": "Commission Percent"
+                    },
+                    {
+                      "property": "SalesPerson_MTD_Goal",
+                      "title": "Sales Person MTD Goal"
+                    },
+                    {
+                      "property": "SalesPerson_YTD_Goal",
+                      "title": "Sales Person YTD Goal"
+                    },
+                    {
+                      "property": "ChargeInterest",
+                      "title": "Charge Interest"
+                    },
+                    {
+                      "property": "Statement",
+                      "title": "Statement"
+                    },
+                    {
+                      "property": "Aging30DayAmout",
+                      "title": "Aging 30 Day Amout"
+                    },
+                    {
+                      "property": "Aging60DayAmout",
+                      "title": "Aging 60 Day Amout"
+                    },
+                    {
+                      "property": "Aging90DayAmout",
+                      "title": "Aging 90 Day Amout"
+                    },
+                    {
+                      "property": "Notes",
+                      "title": "Notes"
+                    },
+                    {
+                      "property": "LastUpdatedDate",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Last Updated Date"
+                    },
+                    {
+                      "property": "LastUdpatedBy",
+                      "title": "Last Udpated By"
+                    },
+                    {
+                      "property": "Inactive",
+                      "title": "Inactive"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblSoCustomer",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblSoCustomer",
+                                "parameters": [
+                                  {
+                                    "name": "Customer_SEQ",
+                                    "value": "${data.Customer_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoCustomer"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblSoCustomers",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblSoCustomersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblSoCustomer>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl So Customers",
+  "layout": "Main"
+}

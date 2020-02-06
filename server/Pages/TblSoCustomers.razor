@@ -1,0 +1,100 @@
+﻿@page "/tbl-so-customers"
+@layout MainLayout
+@inherits CanErp2.Pages.TblSoCustomersComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl So Customers">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblSoCustomersResult" TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Customer_SEQ" Title="Customer SEQ">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Customer_ID" Title="Customer ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LastName" Title="Last Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="FirstName" Title="First Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="CustomerAdressBook_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
+              <Template Context="data">
+              @(data.TblGnAddressBook?.AddressBook_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="CreditLimit" Title="Credit Limit">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LastRevisedCreditLimitDate" FormatString="{0:dd/MM/yyyy}" Title="Last Revised Credit Limit Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="PaymentTerm_FK" SortProperty="TblGnPaymentTerm.PaymentTerm_ID" FilterProperty="TblGnPaymentTerm.PaymentTerm_ID" Title="Tbl Gn Payment Term">
+              <Template Context="data">
+              @(data.TblGnPaymentTerm?.PaymentTerm_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="PaymentType_FK" SortProperty="TblGnPaymentType.PaymentType_ID" FilterProperty="TblGnPaymentType.PaymentType_ID" Title="Tbl Gn Payment Type">
+              <Template Context="data">
+              @(data.TblGnPaymentType?.PaymentType_ID)
+              </Template>
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="DiscountPercent" Title="Discount Percent">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Current_MTD_Sales" Title="Current MTD Sales">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Current_MTD_Returns" Title="Current MTD Returns">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="YTD_GrossSales" Title="YTD Gross Sales">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="YTD_Returns" Title="YTD Returns">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="YTD_COGS" Title="YTD COGS">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LYR_GrossSales" Title="LYR Gross Sales">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LYR_COGS" Title="LYR COGS">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LastAmountSales" Title="Last Amount Sales">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="SalesPersonAdressBook_FK" Title="Sales Person Adress Book FK">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="CommissionPercent" Title="Commission Percent">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="SalesPerson_MTD_Goal" Title="Sales Person MTD Goal">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="SalesPerson_YTD_Goal" Title="Sales Person YTD Goal">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="ChargeInterest" Title="Charge Interest">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Statement" Title="Statement">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Aging30DayAmout" Title="Aging 30 Day Amout">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Aging60DayAmout" Title="Aging 60 Day Amout">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Aging90DayAmout" Title="Aging 90 Day Amout">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Notes" Title="Notes">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LastUpdatedDate" FormatString="{0:dd/MM/yyyy}" Title="Last Updated Date">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="LastUdpatedBy" Title="Last Udpated By">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Property="Inactive" Title="Inactive">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoCustomer" Context="canErp2ModelsDbAtVdc2TblSoCustomer" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblSoCustomer">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblSoCustomer))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

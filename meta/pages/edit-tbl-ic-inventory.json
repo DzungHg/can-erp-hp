@@ -1,0 +1,1953 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "components": [
+            {
+              "class": "col-md-9",
+              "components": [
+                {
+                  "name": "closeLabel",
+                  "style": {
+                    "fontWeight": "bold"
+                  },
+                  "text": "Item no longer available.",
+                  "type": "label",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col0",
+              "type": "col"
+            },
+            {
+              "class": "col-md-3",
+              "components": [
+                {
+                  "buttonStyle": "secondary",
+                  "events": {
+                    "click": [
+                      {
+                        "type": "close-popup"
+                      }
+                    ]
+                  },
+                  "icon": "",
+                  "name": "closeButton",
+                  "style": {
+                    "marginBottom": "20px"
+                  },
+                  "text": "Close",
+                  "type": "button",
+                  "visible": "${!canEdit}"
+                }
+              ],
+              "name": "col1",
+              "type": "col"
+            }
+          ],
+          "name": "row0",
+          "style": {},
+          "type": "row"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Ic Warehouse",
+                              "component": "Warehouse_FK",
+                              "name": "Warehouse_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblIcWarehousesResult}",
+                              "textProperty": "WarehouseName",
+                              "valueProperty": "Warehouse_ID",
+                              "placeholder": "Choose TblIcWarehouse",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Warehouse_FK",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Warehouse_FK}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Warehouse_FKRequiredValidator",
+                              "component": "Warehouse_FK",
+                              "text": "Warehouse_FK is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Ic Category",
+                              "component": "Category_FK",
+                              "name": "Category_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblIcCategoriesResult}",
+                              "textProperty": "CategoryText",
+                              "valueProperty": "Category_ID",
+                              "placeholder": "Choose TblIcCategory",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Category_FK",
+                              "style": {
+                                "display": "block",
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Category_FK}"
+                            },
+                            {
+                              "type": "required-validator",
+                              "name": "Category_FKRequiredValidator",
+                              "component": "Category_FK",
+                              "text": "Category_FK is required",
+                              "style": {
+                                "position": "absolute"
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Ic Classification",
+                              "component": "Classifi_FK",
+                              "name": "Classifi_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblIcClassificationsResult}",
+                              "textProperty": "Classifi_Name",
+                              "valueProperty": "Classifi_ID",
+                              "placeholder": "Choose TblIcClassification",
+                              "valueType": "string",
+                              "type": "dropdown",
+                              "name": "Classifi_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Classifi_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Gn Product",
+                              "component": "Item_FK",
+                              "name": "Item_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblGnProductsResult}",
+                              "textProperty": "Product_ID",
+                              "valueProperty": "Product_SEQ",
+                              "placeholder": "Choose TblGnProduct",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "Item_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Item_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Product Code",
+                              "component": "Product_Code",
+                              "name": "Product_CodeLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 15,
+                              "type": "textbox",
+                              "name": "Product_Code",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Product_Code}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Product Desc",
+                              "component": "ProductDesc",
+                              "name": "ProductDescLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 30,
+                              "type": "textbox",
+                              "name": "ProductDesc",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.ProductDesc}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Fix Asset",
+                              "component": "FixAsset",
+                              "name": "FixAssetLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "FixAsset",
+                              "triState": true,
+                              "value": "${tblicinventory.FixAsset}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Ic Unit",
+                              "component": "Unit_FK",
+                              "name": "Unit_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblIcUnitsResult}",
+                              "textProperty": "UnitText",
+                              "valueProperty": "Unit_SEQ",
+                              "placeholder": "Choose TblIcUnit",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "Unit_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Unit_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Quantity Per Unit",
+                              "component": "QuantityPerUnit",
+                              "name": "QuantityPerUnitLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "QuantityPerUnit",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.QuantityPerUnit}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Location",
+                              "component": "Location",
+                              "name": "LocationLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 100,
+                              "type": "textbox",
+                              "name": "Location",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Location}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Taxable",
+                              "component": "Taxable",
+                              "name": "TaxableLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "Taxable",
+                              "triState": true,
+                              "value": "${tblicinventory.Taxable}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tax Rate",
+                              "component": "TaxRate",
+                              "name": "TaxRateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "TaxRate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.TaxRate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Rop",
+                              "component": "ROP",
+                              "name": "ROPLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "ROP",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.ROP}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Eoq",
+                              "component": "EOQ",
+                              "name": "EOQLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "EOQ",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.EOQ}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Unit Price",
+                              "component": "UnitPrice",
+                              "name": "UnitPriceLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "UnitPrice",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.UnitPrice}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gl Asset",
+                              "component": "GL_Asset",
+                              "name": "GL_AssetLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 7,
+                              "type": "textbox",
+                              "name": "GL_Asset",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.GL_Asset}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gl Cogs",
+                              "component": "GL_COGS",
+                              "name": "GL_COGSLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 7,
+                              "type": "textbox",
+                              "name": "GL_COGS",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.GL_COGS}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gl Sales",
+                              "component": "GL_Sales",
+                              "name": "GL_SalesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 7,
+                              "type": "textbox",
+                              "name": "GL_Sales",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.GL_Sales}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Gl Non Tax Sales",
+                              "component": "GL_NonTaxSales",
+                              "name": "GL_NonTaxSalesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "maxLength": 7,
+                              "type": "textbox",
+                              "name": "GL_NonTaxSales",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.GL_NonTaxSales}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Sale Date",
+                              "component": "LastSaleDate",
+                              "name": "LastSaleDateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "LastSaleDate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastSaleDate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Po Date",
+                              "component": "LastPODate",
+                              "name": "LastPODateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "LastPODate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastPODate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Receipt Date",
+                              "component": "LastReceiptDate",
+                              "name": "LastReceiptDateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "LastReceiptDate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastReceiptDate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Cost",
+                              "component": "LastCost",
+                              "name": "LastCostLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "LastCost",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastCost}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Everage Cost",
+                              "component": "EverageCost",
+                              "name": "EverageCostLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "EverageCost",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.EverageCost}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty On Order",
+                              "component": "Qty_On_Order",
+                              "name": "Qty_On_OrderLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "Qty_On_Order",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Qty_On_Order}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty In Stock",
+                              "component": "Qty_In_Stock",
+                              "name": "Qty_In_StockLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "Qty_In_Stock",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Qty_In_Stock}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty On Hand",
+                              "component": "Qty_On_Hand",
+                              "name": "Qty_On_HandLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "Qty_On_Hand",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Qty_On_Hand}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty Allocated",
+                              "component": "Qty_Allocated",
+                              "name": "Qty_AllocatedLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "Qty_Allocated",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Qty_Allocated}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Mtd Qty Sold",
+                              "component": "MTD_Qty_Sold",
+                              "name": "MTD_Qty_SoldLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "MTD_Qty_Sold",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.MTD_Qty_Sold}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Mtd Gross Sales",
+                              "component": "MTD_Gross_Sales",
+                              "name": "MTD_Gross_SalesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "MTD_Gross_Sales",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.MTD_Gross_Sales}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Mtd Cogs",
+                              "component": "MTD_COGS",
+                              "name": "MTD_COGSLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "MTD_COGS",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.MTD_COGS}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ytd Qty Sold",
+                              "component": "YTD_Qty_Sold",
+                              "name": "YTD_Qty_SoldLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "YTD_Qty_Sold",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.YTD_Qty_Sold}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ytd Gross Sales",
+                              "component": "YTD_Gross_Sales",
+                              "name": "YTD_Gross_SalesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "YTD_Gross_Sales",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.YTD_Gross_Sales}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ytd Cogs",
+                              "component": "YTD_COGS",
+                              "name": "YTD_COGSLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "YTD_COGS",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.YTD_COGS}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ytd Qty Returned",
+                              "component": "YTD_Qty_Returned",
+                              "name": "YTD_Qty_ReturnedLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "YTD_Qty_Returned",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.YTD_Qty_Returned}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ltd Qty Sold",
+                              "component": "LTD_Qty_Sold",
+                              "name": "LTD_Qty_SoldLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "LTD_Qty_Sold",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LTD_Qty_Sold}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ltd Gross Sales",
+                              "component": "LTD_Gross_Sales",
+                              "name": "LTD_Gross_SalesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "LTD_Gross_Sales",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LTD_Gross_Sales}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Ltd Cogs",
+                              "component": "LTD_COGS",
+                              "name": "LTD_COGSLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "LTD_COGS",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LTD_COGS}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Net Gross Rate",
+                              "component": "NetGrossRate",
+                              "name": "NetGrossRateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "double?",
+                              "type": "numeric",
+                              "name": "NetGrossRate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.NetGrossRate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Vendor Number Fk",
+                              "component": "VendorNumber_FK",
+                              "name": "VendorNumber_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "VendorNumber_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.VendorNumber_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Updated Date",
+                              "component": "LastUpdatedDate",
+                              "name": "LastUpdatedDateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "DateTime?",
+                              "dateFormat": "dd/MM/yyyy",
+                              "type": "datepicker",
+                              "name": "LastUpdatedDate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastUpdatedDate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Last Updated By Fk",
+                              "component": "LastUpdatedBy_FK",
+                              "name": "LastUpdatedBy_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "LastUpdatedBy_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.LastUpdatedBy_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Notes",
+                              "component": "Notes",
+                              "name": "NotesLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "string",
+                              "type": "textbox",
+                              "name": "Notes",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblicinventory.Notes}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Inactive",
+                              "component": "Inactive",
+                              "name": "InactiveLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "bool?",
+                              "type": "checkbox",
+                              "name": "Inactive",
+                              "triState": true,
+                              "value": "${tblicinventory.Inactive}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to update TblIcInventory",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.updateTblIcInventory",
+                        "parameters": [
+                          {
+                            "name": "Inventory_SEQ",
+                            "value": "${parameters.Inventory_SEQ}"
+                          },
+                          {
+                            "name": "TblIcInventory",
+                            "value": "${tblicinventory}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblicinventory}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblIcInventory",
+                  "data": "${tblicinventory}",
+                  "visible": "${tblicinventory != null && canEdit}"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "canEdit",
+        "type": "set",
+        "value": "true",
+        "valueType": "bool"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcInventoryByInventory_SEQ",
+        "parameters": [
+          {
+            "name": "Inventory_SEQ",
+            "value": "${parameters.Inventory_SEQ}"
+          }
+        ],
+        "then": [
+          {
+            "name": "tblicinventory",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "CanErp2.Models.DbAtVdc2.TblIcInventory"
+          }
+        ],
+        "error": [],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcWarehouses",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcWarehousesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcWarehouse>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcCategories",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcCategoriesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcCategory>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcClassifications",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcClassificationsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcClassification>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblGnProducts",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblGnProductsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblGnProduct>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcUnits",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcUnitsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcUnit>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Edit Tbl Ic Inventory",
+  "layout": "Main"
+}

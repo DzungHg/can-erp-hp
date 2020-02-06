@@ -1,0 +1,101 @@
+﻿@page "/add-tbl-po-ap-invoices-detail"
+@layout MainLayout
+@inherits CanErp2.Pages.AddTblPoApInvoicesDetailComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenTemplateForm Data="@tblpoapinvoicesdetail" Visible="@(tblpoapinvoicesdetail != null)" TItem="CanErp2.Models.DbAtVdc2.TblPoApInvoicesDetail" Submit="@Form0Submit">
+          <ChildContent>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Po Vendor" Component="Vendor_ID" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblPoVendorsResult" TextProperty="LastName" ValueProperty="Vendor_ID" Placeholder="Choose TblPoVendor" style="display: block; width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Vendor_ID)" Name="Vendor_ID">
+                </RadzenDropDown>
+                <RadzenRequiredValidator Component="Vendor_ID" Text="Vendor_ID is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Invoice No" Component="Invoice_No" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenTextBox MaxLength="15" style="display: block; width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Invoice_No)" Name="Invoice_No">
+                </RadzenTextBox>
+                <RadzenRequiredValidator Component="Invoice_No" Text="Invoice_No is required" style="position: absolute">
+                </RadzenRequiredValidator>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Invoice Date" Component="Invoice_Date" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDatePicker DateFormat="dd/MM/yyyy" style="width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Invoice_Date)" Name="Invoice_Date">
+                </RadzenDatePicker>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Ic Inventory" Component="Inventory_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblIcInventoriesResult" TextProperty="Warehouse_FK" ValueProperty="Inventory_SEQ" Placeholder="Choose TblIcInventory" style="width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Inventory_FK)" Name="Inventory_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Tbl Ic Unit" Component="Unit_FK" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenDropDown Data="@getTblIcUnitsResult" TextProperty="UnitText" ValueProperty="Unit_SEQ" Placeholder="Choose TblIcUnit" style="width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Unit_FK)" Name="Unit_FK">
+                </RadzenDropDown>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Unit Price" Component="Unit_Price" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Unit_Price)" Name="Unit_Price">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div style="margin-bottom: 1rem" class="row">
+              <div class="col-md-3">
+                <RadzenLabel Text="Qty Ordered" Component="Qty_Ordered" style="width: 100%">
+                </RadzenLabel>
+              </div>
+              <div class="col-md-9">
+                <RadzenNumeric style="width: 100%" @bind-Value="@(tblpoapinvoicesdetail.Qty_Ordered)" Name="Qty_Ordered">
+                </RadzenNumeric>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col offset-sm-3">
+                <RadzenButton ButtonType="ButtonType.Submit" Icon="save" Text="Save" ButtonStyle="ButtonStyle.Primary">
+                </RadzenButton>
+                <RadzenButton ButtonStyle="ButtonStyle.Light" Text="Cancel" Click="@Button2Click">
+                </RadzenButton>
+              </div>
+            </div>
+          </ChildContent>
+        </RadzenTemplateForm>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

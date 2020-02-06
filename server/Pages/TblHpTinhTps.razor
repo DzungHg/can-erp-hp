@@ -1,0 +1,35 @@
+﻿@page "/tbl-hp-tinh-tps"
+@layout MainLayout
+@inherits CanErp2.Pages.TblHpTinhTpsComponent
+
+@using Radzen
+@using Radzen.Blazor
+@using CanErp2.Models.DbAtVdc2
+<RadzenContent Container="main">
+  <ChildContent>
+    <RadzenHeading Size="H1" Text="Tbl Hp Tinh Tps">
+    </RadzenHeading>
+    <div class="row">
+      <div class="col-md-12">
+        <RadzenButton Icon="add_circle_outline" style="margin-bottom: 10px" Text="Add" Click="@Button0Click">
+        </RadzenButton>
+        <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblHpTinhTpsResult" TItem="CanErp2.Models.DbAtVdc2.TblHpTinhTp" RowSelect="@Grid0RowSelect">
+          <Columns>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblHpTinhTp" Context="canErp2ModelsDbAtVdc2TblHpTinhTp" Property="TinhTP_ID" Title="Tinh TP ID">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblHpTinhTp" Context="canErp2ModelsDbAtVdc2TblHpTinhTp" Property="TinhTP_Name" Title="Tinh TP Name">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblHpTinhTp" Context="canErp2ModelsDbAtVdc2TblHpTinhTp" Property="Description" Title="Description">
+            </RadzenGridColumn>
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblHpTinhTp" Context="canErp2ModelsDbAtVdc2TblHpTinhTp" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+              <Template Context="canErp2ModelsDbAtVdc2TblHpTinhTp">
+                <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblHpTinhTp))" @onclick:stopPropagation="true">
+                </RadzenButton>
+              </Template>
+            </RadzenGridColumn>
+          </Columns>
+        </RadzenGrid>
+      </div>
+    </div>
+  </ChildContent>
+</RadzenContent>

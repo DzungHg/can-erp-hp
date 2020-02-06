@@ -1,0 +1,191 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Po Rr Order Details"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-po-rr-order-detail",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblPoRrOrderDetailsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "RR_FK",
+                            "value": "${event.RR_FK}"
+                          },
+                          {
+                            "name": "Inventory_FK",
+                            "value": "${event.Inventory_FK}"
+                          }
+                        ],
+                        "path": "edit-tbl-po-rr-order-detail",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "RR_FK",
+                      "sortProperty": "TblPoRecReport.PO_ID",
+                      "filterProperty": "TblPoRecReport.PO_ID",
+                      "template": "${data.TblPoRecReport?.PO_ID}",
+                      "title": "Tbl Po Rec Report"
+                    },
+                    {
+                      "property": "Inventory_FK",
+                      "sortProperty": "TblIcInventory.Warehouse_FK",
+                      "filterProperty": "TblIcInventory.Warehouse_FK",
+                      "template": "${data.TblIcInventory?.Warehouse_FK}",
+                      "title": "Tbl Ic Inventory"
+                    },
+                    {
+                      "property": "Unit_Price",
+                      "title": "Unit Price"
+                    },
+                    {
+                      "property": "QtyOrdered",
+                      "title": "Qty Ordered"
+                    },
+                    {
+                      "property": "QtyReceived",
+                      "title": "Qty Received"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblPoRrOrderDetail",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblPoRrOrderDetail",
+                                "parameters": [
+                                  {
+                                    "name": "RR_FK",
+                                    "value": "${data.RR_FK}"
+                                  },
+                                  {
+                                    "name": "Inventory_FK",
+                                    "value": "${data.Inventory_FK}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblPoRrOrderDetail"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblPoRrOrderDetails",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblPoRrOrderDetailsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblPoRrOrderDetail>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Po Rr Order Details",
+  "layout": "Main"
+}

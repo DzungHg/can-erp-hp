@@ -1,0 +1,569 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "type": "template-form",
+                  "name": "form0",
+                  "components": [
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl So Order Detail Status",
+                              "component": "SODetailStatus_FK",
+                              "name": "SODetailStatus_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblSoOrderDetailStatusesResult}",
+                              "textProperty": "SODetailStatusText",
+                              "valueProperty": "SODetailStatus_SEQ",
+                              "placeholder": "Choose TblSoOrderDetailStatus",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "SODetailStatus_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.SODetailStatus_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl So Sales Order",
+                              "component": "SO_FK",
+                              "name": "SO_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblSoSalesOrdersResult}",
+                              "textProperty": "SO_ID",
+                              "valueProperty": "SO_SEQ",
+                              "placeholder": "Choose TblSoSalesOrder",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "SO_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.SO_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tbl Ic Inventory",
+                              "component": "Inventory_FK",
+                              "name": "Inventory_FKLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "data": "${getTblIcInventoriesResult}",
+                              "textProperty": "Warehouse_FK",
+                              "valueProperty": "Inventory_SEQ",
+                              "placeholder": "Choose TblIcInventory",
+                              "valueType": "int?",
+                              "type": "dropdown",
+                              "name": "Inventory_FK",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.Inventory_FK}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Unit Price",
+                              "component": "UnitPrice",
+                              "name": "UnitPriceLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "UnitPrice",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.UnitPrice}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty On Hand",
+                              "component": "QtyOnHand",
+                              "name": "QtyOnHandLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "QtyOnHand",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.QtyOnHand}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty Ordered",
+                              "component": "QtyOrdered",
+                              "name": "QtyOrderedLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "QtyOrdered",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.QtyOrdered}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty Ordered Now",
+                              "component": "QtyOrderedNow",
+                              "name": "QtyOrderedNowLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "QtyOrderedNow",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.QtyOrderedNow}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty Back Ordered",
+                              "component": "QtyBackOrdered",
+                              "name": "QtyBackOrderedLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "QtyBackOrdered",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.QtyBackOrdered}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Qty Picked",
+                              "component": "QtyPicked",
+                              "name": "QtyPickedLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "int?",
+                              "type": "numeric",
+                              "name": "QtyPicked",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.QtyPicked}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Discount Percent",
+                              "component": "DiscountPercent",
+                              "name": "DiscountPercentLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "DiscountPercent",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.DiscountPercent}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col-md-3",
+                          "components": [
+                            {
+                              "type": "label",
+                              "text": "Tax Rate",
+                              "component": "TaxRate",
+                              "name": "TaxRateLabel",
+                              "style": {
+                                "width": "100%"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "type": "col",
+                          "class": "col-md-9",
+                          "components": [
+                            {
+                              "valueType": "decimal?",
+                              "type": "numeric",
+                              "name": "TaxRate",
+                              "style": {
+                                "width": "100%"
+                              },
+                              "value": "${tblsoorderdetail.TaxRate}"
+                            }
+                          ]
+                        }
+                      ]
+                    },
+                    {
+                      "type": "row",
+                      "components": [
+                        {
+                          "type": "col",
+                          "class": "col offset-sm-3",
+                          "components": [
+                            {
+                              "type": "button",
+                              "buttonType": "submit",
+                              "icon": "save",
+                              "text": "Save",
+                              "buttonStyle": "primary"
+                            },
+                            {
+                              "type": "button",
+                              "buttonStyle": "light",
+                              "text": "Cancel",
+                              "events": {
+                                "click": [
+                                  {
+                                    "type": "close-popup"
+                                  }
+                                ]
+                              }
+                            }
+                          ]
+                        }
+                      ]
+                    }
+                  ],
+                  "events": {
+                    "submit": [
+                      {
+                        "error": [
+                          {
+                            "detail": "Unable to create new TblSoOrderDetail!",
+                            "severity": "error",
+                            "summary": "Error",
+                            "type": "notify"
+                          }
+                        ],
+                        "name": "DB_At_VDC2.createTblSoOrderDetail",
+                        "parameters": [
+                          {
+                            "name": "TblSoOrderDetail",
+                            "value": "${tblsoorderdetail}"
+                          }
+                        ],
+                        "then": [
+                          {
+                            "type": "close-popup",
+                            "result": "${tblsoorderdetail}"
+                          }
+                        ],
+                        "type": "invoke"
+                      }
+                    ]
+                  },
+                  "data": "${tblsoorderdetail}",
+                  "visible": "${tblsoorderdetail != null}",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoOrderDetail"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblSoOrderDetailStatuses",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblSoOrderDetailStatusesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblSoOrderDetailStatus>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblSoSalesOrders",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblSoSalesOrdersResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblSoSalesOrder>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "DB_At_VDC2.getTblIcInventories",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcInventoriesResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcInventory>"
+          }
+        ],
+        "type": "invoke"
+      },
+      {
+        "name": "tblsoorderdetail",
+        "type": "set",
+        "value": "new CanErp2.Models.DbAtVdc2.TblSoOrderDetail()",
+        "valueType": "CanErp2.Models.DbAtVdc2.TblSoOrderDetail"
+      }
+    ]
+  },
+  "name": "Add Tbl So Order Detail",
+  "layout": "Main"
+}

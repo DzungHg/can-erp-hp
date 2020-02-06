@@ -1,0 +1,240 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl Ic Transactions"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-ic-transaction",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblIcTransactionsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "Trans_No",
+                            "value": "${event.Trans_No}"
+                          }
+                        ],
+                        "path": "edit-tbl-ic-transaction",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "Trans_No",
+                      "title": "Trans No"
+                    },
+                    {
+                      "property": "Trans_Code",
+                      "sortProperty": "TblIcTransactionType.Transaction_Name",
+                      "filterProperty": "TblIcTransactionType.Transaction_Name",
+                      "template": "${data.TblIcTransactionType?.Transaction_Name}",
+                      "title": "Tbl Ic Transaction Type"
+                    },
+                    {
+                      "property": "Trans_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Trans Date"
+                    },
+                    {
+                      "property": "Warehouse_ID",
+                      "sortProperty": "TblIcWarehouse.WarehouseName",
+                      "filterProperty": "TblIcWarehouse.WarehouseName",
+                      "template": "${data.TblIcWarehouse?.WarehouseName}",
+                      "title": "Tbl Ic Warehouse"
+                    },
+                    {
+                      "property": "Item_FK",
+                      "sortProperty": "TblGnProduct.Product_ID",
+                      "filterProperty": "TblGnProduct.Product_ID",
+                      "template": "${data.TblGnProduct?.Product_ID}",
+                      "title": "Tbl Gn Product"
+                    },
+                    {
+                      "property": "Reference_No",
+                      "title": "Reference No"
+                    },
+                    {
+                      "property": "Reference_Date",
+                      "formatString": "{0:dd/MM/yyyy}",
+                      "title": "Reference Date"
+                    },
+                    {
+                      "property": "Taxable",
+                      "title": "Taxable"
+                    },
+                    {
+                      "property": "Cust_Vend_WarID",
+                      "title": "Cust Vend War ID"
+                    },
+                    {
+                      "property": "Trans_Qty",
+                      "title": "Trans Qty"
+                    },
+                    {
+                      "property": "UOM",
+                      "title": "UOM"
+                    },
+                    {
+                      "property": "Trans_Amount",
+                      "title": "Trans Amount"
+                    },
+                    {
+                      "property": "Qty_On_Hand_EOB",
+                      "title": "Qty On Hand EOB"
+                    },
+                    {
+                      "property": "Qty_On_Order_EOB",
+                      "title": "Qty On Order EOB"
+                    },
+                    {
+                      "property": "Qty_On_Allowed_EOB",
+                      "title": "Qty On Allowed EOB"
+                    },
+                    {
+                      "property": "GL_Asset",
+                      "title": "GL Asset"
+                    },
+                    {
+                      "property": "GL_COGS",
+                      "title": "GL COGS"
+                    },
+                    {
+                      "property": "GL_Sales",
+                      "title": "GL Sales"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblIcTransaction",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblIcTransaction",
+                                "parameters": [
+                                  {
+                                    "name": "Trans_No",
+                                    "value": "${data.Trans_No}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblIcTransaction"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblIcTransactions",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblIcTransactionsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblIcTransaction>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl Ic Transactions",
+  "layout": "Main"
+}

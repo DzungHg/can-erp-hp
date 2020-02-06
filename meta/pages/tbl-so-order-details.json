@@ -1,0 +1,226 @@
+{
+  "components": [
+    {
+      "type": "content",
+      "container": "main",
+      "components": [
+        {
+          "type": "heading",
+          "name": "pageTitle",
+          "size": "H1",
+          "text": "Tbl So Order Details"
+        },
+        {
+          "type": "row",
+          "components": [
+            {
+              "type": "col",
+              "class": "col-md-12",
+              "components": [
+                {
+                  "icon": "add_circle_outline",
+                  "name": "button0",
+                  "style": {
+                    "marginBottom": "10px"
+                  },
+                  "text": "Add",
+                  "type": "button",
+                  "events": {
+                    "click": [
+                      {
+                        "path": "add-tbl-so-order-detail",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "grid0.Reload();",
+                            "type": "execute"
+                          },
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  }
+                },
+                {
+                  "name": "grid0",
+                  "allowFiltering": true,
+                  "allowPaging": true,
+                  "allowSorting": true,
+                  "data": "${getTblSoOrderDetailsResult}",
+                  "events": {
+                    "loadData": [],
+                    "rowSelect": [
+                      {
+                        "parameters": [
+                          {
+                            "name": "SODetail_SEQ",
+                            "value": "${event.SODetail_SEQ}"
+                          }
+                        ],
+                        "path": "edit-tbl-so-order-detail",
+                        "type": "popup",
+                        "then": [
+                          {
+                            "code": "await InvokeAsync(() => { StateHasChanged(); });",
+                            "type": "execute"
+                          }
+                        ]
+                      }
+                    ]
+                  },
+                  "title": "",
+                  "columns": [
+                    {
+                      "property": "SODetail_SEQ",
+                      "title": "SO Detail SEQ"
+                    },
+                    {
+                      "property": "SODetailStatus_FK",
+                      "sortProperty": "TblSoOrderDetailStatus.SODetailStatusText",
+                      "filterProperty": "TblSoOrderDetailStatus.SODetailStatusText",
+                      "template": "${data.TblSoOrderDetailStatus?.SODetailStatusText}",
+                      "title": "Tbl So Order Detail Status"
+                    },
+                    {
+                      "property": "SO_FK",
+                      "sortProperty": "TblSoSalesOrder.SO_ID",
+                      "filterProperty": "TblSoSalesOrder.SO_ID",
+                      "template": "${data.TblSoSalesOrder?.SO_ID}",
+                      "title": "Tbl So Sales Order"
+                    },
+                    {
+                      "property": "Inventory_FK",
+                      "sortProperty": "TblIcInventory.Warehouse_FK",
+                      "filterProperty": "TblIcInventory.Warehouse_FK",
+                      "template": "${data.TblIcInventory?.Warehouse_FK}",
+                      "title": "Tbl Ic Inventory"
+                    },
+                    {
+                      "property": "UnitPrice",
+                      "title": "Unit Price"
+                    },
+                    {
+                      "property": "QtyOnHand",
+                      "title": "Qty On Hand"
+                    },
+                    {
+                      "property": "QtyOrdered",
+                      "title": "Qty Ordered"
+                    },
+                    {
+                      "property": "QtyOrderedNow",
+                      "title": "Qty Ordered Now"
+                    },
+                    {
+                      "property": "QtyBackOrdered",
+                      "title": "Qty Back Ordered"
+                    },
+                    {
+                      "property": "QtyPicked",
+                      "title": "Qty Picked"
+                    },
+                    {
+                      "property": "SubTotal",
+                      "title": "Sub Total"
+                    },
+                    {
+                      "property": "DiscountPercent",
+                      "title": "Discount Percent"
+                    },
+                    {
+                      "property": "Discount",
+                      "title": "Discount"
+                    },
+                    {
+                      "property": "TaxRate",
+                      "title": "Tax Rate"
+                    },
+                    {
+                      "property": "Tax",
+                      "title": "Tax"
+                    },
+                    {
+                      "filterable": false,
+                      "sortable": false,
+                      "width": "70px",
+                      "textAlign": "center",
+                      "template": [
+                        {
+                          "attributes": [
+                            {
+                              "name": "@onclick:stopPropagation",
+                              "value": true
+                            }
+                          ],
+                          "buttonStyle": "danger",
+                          "icon": "close",
+                          "name": "gridDeleteButton",
+                          "text": "",
+                          "size": "sm",
+                          "type": "button",
+                          "events": {
+                            "click": [
+                              {
+                                "error": [
+                                  {
+                                    "detail": "Unable to delete TblSoOrderDetail",
+                                    "severity": "error",
+                                    "summary": "Error",
+                                    "type": "notify"
+                                  }
+                                ],
+                                "name": "DB_At_VDC2.deleteTblSoOrderDetail",
+                                "parameters": [
+                                  {
+                                    "name": "SODetail_SEQ",
+                                    "value": "${data.SODetail_SEQ}"
+                                  }
+                                ],
+                                "then": [
+                                  {
+                                    "code": "grid0.Reload();",
+                                    "condition": "result != null",
+                                    "type": "execute"
+                                  }
+                                ],
+                                "type": "invoke"
+                              }
+                            ]
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "type": "grid",
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoOrderDetail"
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "events": {
+    "load": [
+      {
+        "name": "DB_At_VDC2.getTblSoOrderDetails",
+        "parameters": [],
+        "then": [
+          {
+            "name": "getTblSoOrderDetailsResult",
+            "type": "set",
+            "value": "${result}",
+            "valueType": "IEnumerable<CanErp2.Models.DbAtVdc2.TblSoOrderDetail>"
+          }
+        ],
+        "type": "invoke"
+      }
+    ]
+  },
+  "name": "Tbl So Order Details",
+  "layout": "Main"
+}
