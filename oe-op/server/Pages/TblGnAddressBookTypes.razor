@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblGnAddressBookTypesResult" TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Context="canErp2ModelsDbAtVdc2TblGnAddressBookType" Property="AddressBookType_SEQ" Title="Address Book Type SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Property="AddressBookType_SEQ" Title="Address Book Type SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Context="canErp2ModelsDbAtVdc2TblGnAddressBookType" Property="AddressBookType_ID" Title="Address Book Type ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Property="AddressBookType_ID" Title="Address Book Type ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Context="canErp2ModelsDbAtVdc2TblGnAddressBookType" Property="AddressBookTypeText" Title="Address Book Type Text">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Property="AddressBookTypeText" Title="Address Book Type Text">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Context="canErp2ModelsDbAtVdc2TblGnAddressBookType" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBookType" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblGnAddressBookType">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblGnAddressBookType))" @onclick:stopPropagation="true">
                 </RadzenButton>

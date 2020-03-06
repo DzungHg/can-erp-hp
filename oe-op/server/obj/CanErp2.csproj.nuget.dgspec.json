@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\ZDung HDD\\GitHub\\can-erp\\radzen-app\\server\\CanErp2.csproj": {}
+    "C:\\ZDung HDD\\GitHub\\can-erp-oe-mod\\oe-op\\server\\CanErp2.csproj": {}
   },
   "projects": {
-    "C:\\ZDung HDD\\GitHub\\can-erp\\radzen-app\\server\\CanErp2.csproj": {
+    "C:\\ZDung HDD\\GitHub\\can-erp-oe-mod\\oe-op\\server\\CanErp2.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\ZDung HDD\\GitHub\\can-erp\\radzen-app\\server\\CanErp2.csproj",
+        "projectUniqueName": "C:\\ZDung HDD\\GitHub\\can-erp-oe-mod\\oe-op\\server\\CanErp2.csproj",
         "projectName": "CanErp2",
-        "projectPath": "C:\\ZDung HDD\\GitHub\\can-erp\\radzen-app\\server\\CanErp2.csproj",
+        "projectPath": "C:\\ZDung HDD\\GitHub\\can-erp-oe-mod\\oe-op\\server\\CanErp2.csproj",
         "packagesPath": "C:\\Users\\HP\\.nuget\\packages\\",
-        "outputPath": "C:\\ZDung HDD\\GitHub\\can-erp\\radzen-app\\server\\obj\\",
+        "outputPath": "C:\\ZDung HDD\\GitHub\\can-erp-oe-mod\\oe-op\\server\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Microsoft\\Xamarin\\NuGet\\"
@@ -64,7 +64,7 @@
             },
             "Radzen.Blazor": {
               "target": "Package",
-              "version": "[2.1.16, )"
+              "version": "[2.2.6, )"
             },
             "System.ComponentModel.Annotations": {
               "target": "Package",

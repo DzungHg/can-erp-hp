@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblGnGendersResult" TItem="CanErp2.Models.DbAtVdc2.TblGnGender" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Context="canErp2ModelsDbAtVdc2TblGnGender" Property="Gender_SEQ" Title="Gender SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Property="Gender_SEQ" Title="Gender SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Context="canErp2ModelsDbAtVdc2TblGnGender" Property="Gender_ID" Title="Gender ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Property="Gender_ID" Title="Gender ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Context="canErp2ModelsDbAtVdc2TblGnGender" Property="Gender" Title="Gender">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Property="Gender" Title="Gender">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Context="canErp2ModelsDbAtVdc2TblGnGender" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnGender" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblGnGender">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblGnGender))" @onclick:stopPropagation="true">
                 </RadzenButton>

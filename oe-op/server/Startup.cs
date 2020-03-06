@@ -83,9 +83,7 @@ namespace CanErp2
                     return next();
                 });
             }
-
             app.UseHttpsRedirection();
-
             app.UseStaticFiles();
 
             app.UseRouting();

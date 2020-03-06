@@ -15,116 +15,116 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblIcInventoriesResult" TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Inventory_SEQ" Title="Inventory SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Inventory_SEQ" Title="Inventory SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Warehouse_FK" SortProperty="TblIcWarehouse.WarehouseName" FilterProperty="TblIcWarehouse.WarehouseName" Title="Tbl Ic Warehouse">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Warehouse_FK" SortProperty="TblIcWarehouse.WarehouseName" FilterProperty="TblIcWarehouse.WarehouseName" Title="Tbl Ic Warehouse">
               <Template Context="data">
               @(data.TblIcWarehouse?.WarehouseName)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Category_FK" SortProperty="TblIcCategory.CategoryText" FilterProperty="TblIcCategory.CategoryText" Title="Tbl Ic Category">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Category_FK" SortProperty="TblIcCategory.CategoryText" FilterProperty="TblIcCategory.CategoryText" Title="Tbl Ic Category">
               <Template Context="data">
               @(data.TblIcCategory?.CategoryText)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Classifi_FK" SortProperty="TblIcClassification.Classifi_Name" FilterProperty="TblIcClassification.Classifi_Name" Title="Tbl Ic Classification">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Classifi_FK" SortProperty="TblIcClassification.Classifi_Name" FilterProperty="TblIcClassification.Classifi_Name" Title="Tbl Ic Classification">
               <Template Context="data">
               @(data.TblIcClassification?.Classifi_Name)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Item_FK" SortProperty="TblGnProduct.Product_ID" FilterProperty="TblGnProduct.Product_ID" Title="Tbl Gn Product">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Item_FK" SortProperty="TblGnProduct.Product_ID" FilterProperty="TblGnProduct.Product_ID" Title="Tbl Gn Product">
               <Template Context="data">
               @(data.TblGnProduct?.Product_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Product_Code" Title="Product Code">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Product_Code" Title="Product Code">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="ProductDesc" Title="Product Desc">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="ProductDesc" Title="Product Desc">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="FixAsset" Title="Fix Asset">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="FixAsset" Title="Fix Asset">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Unit_FK" SortProperty="TblIcUnit.UnitText" FilterProperty="TblIcUnit.UnitText" Title="Tbl Ic Unit">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Unit_FK" SortProperty="TblIcUnit.UnitText" FilterProperty="TblIcUnit.UnitText" Title="Tbl Ic Unit">
               <Template Context="data">
               @(data.TblIcUnit?.UnitText)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="QuantityPerUnit" Title="Quantity Per Unit">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="QuantityPerUnit" Title="Quantity Per Unit">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Location" Title="Location">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Location" Title="Location">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Taxable" Title="Taxable">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Taxable" Title="Taxable">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="TaxRate" Title="Tax Rate">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="TaxRate" Title="Tax Rate">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="ROP" Title="ROP">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="ROP" Title="ROP">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="EOQ" Title="EOQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="EOQ" Title="EOQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="UnitPrice" Title="Unit Price">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="UnitPrice" Title="Unit Price">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="GL_Asset" Title="GL Asset">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="GL_Asset" Title="GL Asset">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="GL_COGS" Title="GL COGS">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="GL_COGS" Title="GL COGS">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="GL_Sales" Title="GL Sales">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="GL_Sales" Title="GL Sales">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="GL_NonTaxSales" Title="GL Non Tax Sales">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="GL_NonTaxSales" Title="GL Non Tax Sales">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastSaleDate" FormatString="{0:dd/MM/yyyy}" Title="Last Sale Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastSaleDate" FormatString="{0:dd/MM/yyyy}" Title="Last Sale Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastPODate" FormatString="{0:dd/MM/yyyy}" Title="Last PO Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastPODate" FormatString="{0:dd/MM/yyyy}" Title="Last PO Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastReceiptDate" FormatString="{0:dd/MM/yyyy}" Title="Last Receipt Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastReceiptDate" FormatString="{0:dd/MM/yyyy}" Title="Last Receipt Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Leadtime" FormatString="{0:dd/MM/yyyy}" Title="Leadtime">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Leadtime" FormatString="{0:dd/MM/yyyy}" Title="Leadtime">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastCost" Title="Last Cost">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastCost" Title="Last Cost">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="EverageCost" Title="Everage Cost">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="EverageCost" Title="Everage Cost">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Qty_On_Order" Title="Qty On Order">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Qty_On_Order" Title="Qty On Order">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Qty_In_Stock" Title="Qty In Stock">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Qty_In_Stock" Title="Qty In Stock">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Qty_On_Hand" Title="Qty On Hand">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Qty_On_Hand" Title="Qty On Hand">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Qty_Allocated" Title="Qty Allocated">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Qty_Allocated" Title="Qty Allocated">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="TotalInventory" Title="Total Inventory">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="TotalInventory" Title="Total Inventory">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="MTD_Qty_Sold" Title="MTD Qty Sold">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="MTD_Qty_Sold" Title="MTD Qty Sold">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="MTD_Gross_Sales" Title="MTD Gross Sales">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="MTD_Gross_Sales" Title="MTD Gross Sales">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="MTD_COGS" Title="MTD COGS">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="MTD_COGS" Title="MTD COGS">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="YTD_Qty_Sold" Title="YTD Qty Sold">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="YTD_Qty_Sold" Title="YTD Qty Sold">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="YTD_Gross_Sales" Title="YTD Gross Sales">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="YTD_Gross_Sales" Title="YTD Gross Sales">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="YTD_COGS" Title="YTD COGS">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="YTD_COGS" Title="YTD COGS">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="YTD_Qty_Returned" Title="YTD Qty Returned">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="YTD_Qty_Returned" Title="YTD Qty Returned">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LTD_Qty_Sold" Title="LTD Qty Sold">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LTD_Qty_Sold" Title="LTD Qty Sold">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LTD_Gross_Sales" Title="LTD Gross Sales">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LTD_Gross_Sales" Title="LTD Gross Sales">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LTD_COGS" Title="LTD COGS">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LTD_COGS" Title="LTD COGS">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="NetGrossRate" Title="Net Gross Rate">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="NetGrossRate" Title="Net Gross Rate">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="VendorNumber_FK" Title="Vendor Number FK">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="VendorNumber_FK" Title="Vendor Number FK">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastUpdatedDate" FormatString="{0:dd/MM/yyyy}" Title="Last Updated Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastUpdatedDate" FormatString="{0:dd/MM/yyyy}" Title="Last Updated Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="LastUpdatedBy_FK" Title="Last Updated By FK">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="LastUpdatedBy_FK" Title="Last Updated By FK">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Notes" Title="Notes">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Notes" Title="Notes">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Property="Inactive" Title="Inactive">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Property="Inactive" Title="Inactive">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Context="canErp2ModelsDbAtVdc2TblIcInventory" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcInventory" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblIcInventory">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblIcInventory))" @onclick:stopPropagation="true">
                 </RadzenButton>

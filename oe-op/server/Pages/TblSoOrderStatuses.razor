@@ -15,15 +15,15 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblSoOrderStatusesResult" TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatus_SEQ" Title="SO Status SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Property="SOStatus_SEQ" Title="SO Status SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatus_ID" Title="SO Status ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Property="SOStatus_ID" Title="SO Status ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="SOStatusText" Title="SO Status Text">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Property="SOStatusText" Title="SO Status Text">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Property="Description" Title="Description">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Property="Description" Title="Description">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Context="canErp2ModelsDbAtVdc2TblSoOrderStatus" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderStatus" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblSoOrderStatus">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblSoOrderStatus))" @onclick:stopPropagation="true">
                 </RadzenButton>

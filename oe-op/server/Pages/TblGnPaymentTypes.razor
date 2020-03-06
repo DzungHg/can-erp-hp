@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblGnPaymentTypesResult" TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Context="canErp2ModelsDbAtVdc2TblGnPaymentType" Property="PaymentType_SEQ" Title="Payment Type SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Property="PaymentType_SEQ" Title="Payment Type SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Context="canErp2ModelsDbAtVdc2TblGnPaymentType" Property="PaymentType_ID" Title="Payment Type ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Property="PaymentType_ID" Title="Payment Type ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Context="canErp2ModelsDbAtVdc2TblGnPaymentType" Property="PaymentTypeText" Title="Payment Type Text">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Property="PaymentTypeText" Title="Payment Type Text">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Context="canErp2ModelsDbAtVdc2TblGnPaymentType" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnPaymentType" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblGnPaymentType">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblGnPaymentType))" @onclick:stopPropagation="true">
                 </RadzenButton>

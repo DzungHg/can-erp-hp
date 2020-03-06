@@ -15,47 +15,47 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoRecReportsResult" TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="RR_No" Title="RR No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="RR_No" Title="RR No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="RRDate" FormatString="{0:dd/MM/yyyy}" Title="RR Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="RRDate" FormatString="{0:dd/MM/yyyy}" Title="RR Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="CreatedBy_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="CreatedBy_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
               <Template Context="data">
               @(data.TblGnAddressBook?.AddressBook_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="PO_ID" Title="PO ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="PO_ID" Title="PO ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="POStatus_FK" Title="PO Status FK">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="POStatus_FK" Title="PO Status FK">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="PODate" FormatString="{0:dd/MM/yyyy}" Title="PO Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="PODate" FormatString="{0:dd/MM/yyyy}" Title="PO Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Vendor_FK" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Vendor_FK" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
               <Template Context="data">
               @(data.TblPoVendor?.LastName)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Description" Title="Description">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Description" Title="Description">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Invoice_No" Title="Invoice No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Invoice_No" Title="Invoice No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Invoice_Date" FormatString="{0:dd/MM/yyyy}" Title="Invoice Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Invoice_Date" FormatString="{0:dd/MM/yyyy}" Title="Invoice Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Ship_No" Title="Ship No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Ship_No" Title="Ship No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Ship_Date" FormatString="{0:dd/MM/yyyy}" Title="Ship Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Ship_Date" FormatString="{0:dd/MM/yyyy}" Title="Ship Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Receiver_FK" Title="Receiver FK">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Receiver_FK" Title="Receiver FK">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="BillOf_Loading_No" Title="Bill Of Loading No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="BillOf_Loading_No" Title="Bill Of Loading No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="PO_Amount" Title="PO Amount">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="PO_Amount" Title="PO Amount">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Inactive" Title="Inactive">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Inactive" Title="Inactive">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Property="Warhoused" Title="Warhoused">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Property="Warhoused" Title="Warhoused">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Context="canErp2ModelsDbAtVdc2TblPoRecReport" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoRecReport" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblPoRecReport">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoRecReport))" @onclick:stopPropagation="true">
                 </RadzenButton>

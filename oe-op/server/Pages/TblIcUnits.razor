@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblIcUnitsResult" TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Context="canErp2ModelsDbAtVdc2TblIcUnit" Property="Unit_SEQ" Title="Unit SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Property="Unit_SEQ" Title="Unit SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Context="canErp2ModelsDbAtVdc2TblIcUnit" Property="UnitText" Title="Unit Text">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Property="UnitText" Title="Unit Text">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Context="canErp2ModelsDbAtVdc2TblIcUnit" Property="Unit_FK" Title="Unit FK">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Property="Unit_FK" Title="Unit FK">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Context="canErp2ModelsDbAtVdc2TblIcUnit" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcUnit" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblIcUnit">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblIcUnit))" @onclick:stopPropagation="true">
                 </RadzenButton>

@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblGnDepartmentsResult" TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Context="canErp2ModelsDbAtVdc2TblGnDepartment" Property="Department_ID" Title="Department ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Property="Department_ID" Title="Department ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Context="canErp2ModelsDbAtVdc2TblGnDepartment" Property="Deparment_Name" Title="Deparment Name">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Property="Deparment_Name" Title="Deparment Name">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Context="canErp2ModelsDbAtVdc2TblGnDepartment" Property="Description" Title="Description">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Property="Description" Title="Description">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Context="canErp2ModelsDbAtVdc2TblGnDepartment" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnDepartment" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblGnDepartment">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblGnDepartment))" @onclick:stopPropagation="true">
                 </RadzenButton>

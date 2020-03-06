@@ -15,36 +15,36 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoCashDisbursementsResult" TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="PO_CashDisb_No" Title="PO Cash Disb No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="PO_CashDisb_No" Title="PO Cash Disb No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="PO_CashDisb_Date" FormatString="{0:dd/MM/yyyy}" Title="PO Cash Disb Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="PO_CashDisb_Date" FormatString="{0:dd/MM/yyyy}" Title="PO Cash Disb Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Customer_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Customer_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
               <Template Context="data">
               @(data.TblGnAddressBook?.AddressBook_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Description" Title="Description">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Description" Title="Description">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Disbursement_Type" Title="Disbursement Type">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Disbursement_Type" Title="Disbursement Type">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Gross_Invt_Amt" Title="Gross Invt Amt">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Gross_Invt_Amt" Title="Gross Invt Amt">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Discount_Invt_Amt" Title="Discount Invt Amt">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Discount_Invt_Amt" Title="Discount Invt Amt">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Check_No" Title="Check No">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Check_No" Title="Check No">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Check_Date" FormatString="{0:dd/MM/yyyy}" Title="Check Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Check_Date" FormatString="{0:dd/MM/yyyy}" Title="Check Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Check_Amount" Title="Check Amount">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Check_Amount" Title="Check Amount">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="DebiAccount" Title="Debi Account">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="DebiAccount" Title="Debi Account">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="CreditAccount" Title="Credit Account">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="CreditAccount" Title="Credit Account">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Property="Payment" Title="Payment">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Property="Payment" Title="Payment">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoCashDisbursement" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblPoCashDisbursement">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoCashDisbursement))" @onclick:stopPropagation="true">
                 </RadzenButton>

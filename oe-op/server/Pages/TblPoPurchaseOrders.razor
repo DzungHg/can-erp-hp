@@ -15,64 +15,64 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblPoPurchaseOrdersResult" TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="PO_ID" Title="PO ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="PO_ID" Title="PO ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="PODate" FormatString="{0:dd/MM/yyyy}" Title="PO Date">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="PODate" FormatString="{0:dd/MM/yyyy}" Title="PO Date">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="CreatedBy_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="CreatedBy_FK" SortProperty="TblGnAddressBook.AddressBook_ID" FilterProperty="TblGnAddressBook.AddressBook_ID" Title="Tbl Gn Address Book">
               <Template Context="data">
               @(data.TblGnAddressBook?.AddressBook_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="POStatus_FK" SortProperty="TblPoOrderStatus.POStatusText" FilterProperty="TblPoOrderStatus.POStatusText" Title="Tbl Po Order Status">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="POStatus_FK" SortProperty="TblPoOrderStatus.POStatusText" FilterProperty="TblPoOrderStatus.POStatusText" Title="Tbl Po Order Status">
               <Template Context="data">
               @(data.TblPoOrderStatus?.POStatusText)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="Vendor_FK" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="Vendor_FK" SortProperty="TblPoVendor.LastName" FilterProperty="TblPoVendor.LastName" Title="Tbl Po Vendor">
               <Template Context="data">
               @(data.TblPoVendor?.LastName)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="Description" Title="Description">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="Description" Title="Description">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="Incoterm_FK" SortProperty="TblGnIncoterm.Incoterm_Name" FilterProperty="TblGnIncoterm.Incoterm_Name" Title="Tbl Gn Incoterm">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="Incoterm_FK" SortProperty="TblGnIncoterm.Incoterm_Name" FilterProperty="TblGnIncoterm.Incoterm_Name" Title="Tbl Gn Incoterm">
               <Template Context="data">
               @(data.TblGnIncoterm?.Incoterm_Name)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="ShipVia_FK" SortProperty="TblGnShipVium.ShipVia_ID" FilterProperty="TblGnShipVium.ShipVia_ID" Title="Tbl Gn Ship Vium">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="ShipVia_FK" SortProperty="TblGnShipVium.ShipVia_ID" FilterProperty="TblGnShipVium.ShipVia_ID" Title="Tbl Gn Ship Vium">
               <Template Context="data">
               @(data.TblGnShipVium?.ShipVia_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="PaymentTerm_FK" SortProperty="TblGnPaymentTerm.PaymentTerm_ID" FilterProperty="TblGnPaymentTerm.PaymentTerm_ID" Title="Tbl Gn Payment Term">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="PaymentTerm_FK" SortProperty="TblGnPaymentTerm.PaymentTerm_ID" FilterProperty="TblGnPaymentTerm.PaymentTerm_ID" Title="Tbl Gn Payment Term">
               <Template Context="data">
               @(data.TblGnPaymentTerm?.PaymentTerm_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="PaymentType_FK" SortProperty="TblGnPaymentType.PaymentType_ID" FilterProperty="TblGnPaymentType.PaymentType_ID" Title="Tbl Gn Payment Type">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="PaymentType_FK" SortProperty="TblGnPaymentType.PaymentType_ID" FilterProperty="TblGnPaymentType.PaymentType_ID" Title="Tbl Gn Payment Type">
               <Template Context="data">
               @(data.TblGnPaymentType?.PaymentType_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="Buyer_FK" SortProperty="TblGnAddressBook1.AddressBook_ID" FilterProperty="TblGnAddressBook1.AddressBook_ID" Title="Tbl Gn Address Book">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="Buyer_FK" SortProperty="TblGnAddressBook1.AddressBook_ID" FilterProperty="TblGnAddressBook1.AddressBook_ID" Title="Tbl Gn Address Book">
               <Template Context="data">
               @(data.TblGnAddressBook1?.AddressBook_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="TaxYN" Title="Tax YN">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="TaxYN" Title="Tax YN">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="TaxtRate" Title="Taxt Rate">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="TaxtRate" Title="Taxt Rate">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="Department_FK" SortProperty="TblGnDepartment.Deparment_Name" FilterProperty="TblGnDepartment.Deparment_Name" Title="Tbl Gn Department">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="Department_FK" SortProperty="TblGnDepartment.Deparment_Name" FilterProperty="TblGnDepartment.Deparment_Name" Title="Tbl Gn Department">
               <Template Context="data">
               @(data.TblGnDepartment?.Deparment_Name)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Property="PO_Amount" Title="PO Amount">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Property="PO_Amount" Title="PO Amount">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblPoPurchaseOrder" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblPoPurchaseOrder">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblPoPurchaseOrder))" @onclick:stopPropagation="true">
                 </RadzenButton>

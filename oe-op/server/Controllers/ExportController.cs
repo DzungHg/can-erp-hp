@@ -21,9 +21,10 @@ namespace CanErp2
         {
             if (query != null)
             {
-                if (query.ContainsKey("$filter"))
+                var filter = query.ContainsKey("$filter") ? query["$filter"].ToString().Replace("i =>", "") : null;
+                if (!string.IsNullOrEmpty(filter))
                 {
-                    items = items.Where(query["$filter"].ToString());
+                    items = items.Where(filter);
                 }
 
                 if (query.ContainsKey("$orderBy"))
@@ -33,7 +34,7 @@ namespace CanErp2
 
                 if (query.ContainsKey("$expand"))
                 {
-                    var propertiesToExpand = query["$orderBy"].ToString().Split(',');
+                    var propertiesToExpand = query["$expand"].ToString().Split(',');
                     foreach (var p in propertiesToExpand)
                     {
                         items = items.Include(p);

@@ -2242,6 +2242,11 @@ namespace CanErp2
                               .Include(i => i.TblPoVendors)
                               .FirstOrDefault();
 
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
+
             OnTblGnAddressBookDeleted(item);
 
             context.TblGnAddressBooks.Remove(item);
@@ -2288,7 +2293,11 @@ namespace CanErp2
 
             var item = context.TblGnAddressBooks
                               .Where(i => i.AddressBook_SEQ == addressBookSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnAddressBook);
             entry.State = EntityState.Modified;
@@ -2305,6 +2314,11 @@ namespace CanErp2
                               .Where(i => i.AddressBookType_SEQ == addressBookTypeSeq)
                               .Include(i => i.TblGnAddressBooks)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnAddressBookTypeDeleted(item);
 
@@ -2346,7 +2360,11 @@ namespace CanErp2
 
             var item = context.TblGnAddressBookTypes
                               .Where(i => i.AddressBookType_SEQ == addressBookTypeSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnAddressBookType);
             entry.State = EntityState.Modified;
@@ -2364,6 +2382,11 @@ namespace CanErp2
                               .Include(i => i.TblPoAccountPayables)
                               .Include(i => i.TblPoPurchaseOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnDepartmentDeleted(item);
 
@@ -2405,7 +2428,11 @@ namespace CanErp2
 
             var item = context.TblGnDepartments
                               .Where(i => i.Department_ID == departmentId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnDepartment);
             entry.State = EntityState.Modified;
@@ -2422,6 +2449,11 @@ namespace CanErp2
                               .Where(i => i.Gender_SEQ == genderSeq)
                               .Include(i => i.TblGnAddressBooks)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnGenderDeleted(item);
 
@@ -2463,7 +2495,11 @@ namespace CanErp2
 
             var item = context.TblGnGenders
                               .Where(i => i.Gender_SEQ == genderSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnGender);
             entry.State = EntityState.Modified;
@@ -2480,6 +2516,11 @@ namespace CanErp2
                               .Where(i => i.Incoterm_ID == incotermId)
                               .Include(i => i.TblPoPurchaseOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnIncotermDeleted(item);
 
@@ -2521,7 +2562,11 @@ namespace CanErp2
 
             var item = context.TblGnIncoterms
                               .Where(i => i.Incoterm_ID == incotermId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnIncoterm);
             entry.State = EntityState.Modified;
@@ -2540,6 +2585,11 @@ namespace CanErp2
                               .Include(i => i.TblSoCustomers)
                               .Include(i => i.TblSoSalesOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnPaymentTermDeleted(item);
 
@@ -2581,7 +2631,11 @@ namespace CanErp2
 
             var item = context.TblGnPaymentTerms
                               .Where(i => i.PaymentTerm_SEQ == paymentTermSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnPaymentTerm);
             entry.State = EntityState.Modified;
@@ -2600,6 +2654,11 @@ namespace CanErp2
                               .Include(i => i.TblSoCustomers)
                               .Include(i => i.TblSoSalesOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnPaymentTypeDeleted(item);
 
@@ -2641,7 +2700,11 @@ namespace CanErp2
 
             var item = context.TblGnPaymentTypes
                               .Where(i => i.PaymentType_SEQ == paymentTypeSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnPaymentType);
             entry.State = EntityState.Modified;
@@ -2659,6 +2722,11 @@ namespace CanErp2
                               .Include(i => i.TblIcTransactions)
                               .Include(i => i.TblIcInventories)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnProductDeleted(item);
 
@@ -2700,7 +2768,11 @@ namespace CanErp2
 
             var item = context.TblGnProducts
                               .Where(i => i.Product_SEQ == productSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnProduct);
             entry.State = EntityState.Modified;
@@ -2718,6 +2790,11 @@ namespace CanErp2
                               .Include(i => i.TblPoPurchaseOrders)
                               .Include(i => i.TblSoSalesOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblGnShipViumDeleted(item);
 
@@ -2759,7 +2836,11 @@ namespace CanErp2
 
             var item = context.TblGnShipVia
                               .Where(i => i.ShipVia_SEQ == shipViaSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblGnShipVium);
             entry.State = EntityState.Modified;
@@ -2776,6 +2857,11 @@ namespace CanErp2
                               .Where(i => i.TinhTP_ID == tinhTpId)
                               .Include(i => i.TblGnAddressBooks)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblHpTinhTpDeleted(item);
 
@@ -2817,7 +2903,11 @@ namespace CanErp2
 
             var item = context.TblHpTinhTps
                               .Where(i => i.TinhTP_ID == tinhTpId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblHpTinhTp);
             entry.State = EntityState.Modified;
@@ -2834,6 +2924,11 @@ namespace CanErp2
                               .Where(i => i.Category_ID == categoryId)
                               .Include(i => i.TblIcInventories)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcCategoryDeleted(item);
 
@@ -2875,7 +2970,11 @@ namespace CanErp2
 
             var item = context.TblIcCategories
                               .Where(i => i.Category_ID == categoryId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcCategory);
             entry.State = EntityState.Modified;
@@ -2892,6 +2991,11 @@ namespace CanErp2
                               .Where(i => i.Classifi_ID == classifiId)
                               .Include(i => i.TblIcInventories)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcClassificationDeleted(item);
 
@@ -2933,7 +3037,11 @@ namespace CanErp2
 
             var item = context.TblIcClassifications
                               .Where(i => i.Classifi_ID == classifiId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcClassification);
             entry.State = EntityState.Modified;
@@ -2953,6 +3061,11 @@ namespace CanErp2
                               .Include(i => i.TblPoRrOrderDetails)
                               .Include(i => i.TblSoOrderDetails)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcInventoryDeleted(item);
 
@@ -3004,7 +3117,11 @@ namespace CanErp2
 
             var item = context.TblIcInventories
                               .Where(i => i.Inventory_SEQ == inventorySeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcInventory);
             entry.State = EntityState.Modified;
@@ -3020,6 +3137,11 @@ namespace CanErp2
             var item = context.TblIcTransactions
                               .Where(i => i.Trans_No == transNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcTransactionDeleted(item);
 
@@ -3067,7 +3189,11 @@ namespace CanErp2
 
             var item = context.TblIcTransactions
                               .Where(i => i.Trans_No == transNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcTransaction);
             entry.State = EntityState.Modified;
@@ -3084,6 +3210,11 @@ namespace CanErp2
                               .Where(i => i.Transaction_ID == transactionId)
                               .Include(i => i.TblIcTransactions)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcTransactionTypeDeleted(item);
 
@@ -3125,7 +3256,11 @@ namespace CanErp2
 
             var item = context.TblIcTransactionTypes
                               .Where(i => i.Transaction_ID == transactionId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcTransactionType);
             entry.State = EntityState.Modified;
@@ -3143,6 +3278,11 @@ namespace CanErp2
                               .Include(i => i.TblPoApInvoicesDetails)
                               .Include(i => i.TblIcInventories)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcUnitDeleted(item);
 
@@ -3184,7 +3324,11 @@ namespace CanErp2
 
             var item = context.TblIcUnits
                               .Where(i => i.Unit_SEQ == unitSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcUnit);
             entry.State = EntityState.Modified;
@@ -3202,6 +3346,11 @@ namespace CanErp2
                               .Include(i => i.TblIcTransactions)
                               .Include(i => i.TblIcInventories)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblIcWarehouseDeleted(item);
 
@@ -3243,7 +3392,11 @@ namespace CanErp2
 
             var item = context.TblIcWarehouses
                               .Where(i => i.Warehouse_ID == warehouseId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblIcWarehouse);
             entry.State = EntityState.Modified;
@@ -3259,6 +3412,11 @@ namespace CanErp2
             var item = context.TblPoAccountPayables
                               .Where(i => i.AP_No == apNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoAccountPayableDeleted(item);
 
@@ -3304,7 +3462,11 @@ namespace CanErp2
 
             var item = context.TblPoAccountPayables
                               .Where(i => i.AP_No == apNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoAccountPayable);
             entry.State = EntityState.Modified;
@@ -3320,6 +3482,11 @@ namespace CanErp2
             var item = context.TblPoAccountsPayableAdjustments
                               .Where(i => i.Voucher_No == voucherNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoAccountsPayableAdjustmentDeleted(item);
 
@@ -3361,7 +3528,11 @@ namespace CanErp2
 
             var item = context.TblPoAccountsPayableAdjustments
                               .Where(i => i.Voucher_No == voucherNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoAccountsPayableAdjustment);
             entry.State = EntityState.Modified;
@@ -3377,6 +3548,11 @@ namespace CanErp2
             var item = context.TblPoApInvoices
                               .Where(i => i.Vendor_ID == vendorId && i.Invoice_No == invoiceNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoApInvoiceDeleted(item);
 
@@ -3420,7 +3596,11 @@ namespace CanErp2
 
             var item = context.TblPoApInvoices
                               .Where(i => i.Vendor_ID == vendorId && i.Invoice_No == invoiceNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoApInvoice);
             entry.State = EntityState.Modified;
@@ -3436,6 +3616,11 @@ namespace CanErp2
             var item = context.TblPoApInvoicesDetails
                               .Where(i => i.Vendor_ID == vendorId && i.Invoice_No == invoiceNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoApInvoicesDetailDeleted(item);
 
@@ -3483,7 +3668,11 @@ namespace CanErp2
 
             var item = context.TblPoApInvoicesDetails
                               .Where(i => i.Vendor_ID == vendorId && i.Invoice_No == invoiceNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoApInvoicesDetail);
             entry.State = EntityState.Modified;
@@ -3499,6 +3688,11 @@ namespace CanErp2
             var item = context.TblPoCashDisbursements
                               .Where(i => i.PO_CashDisb_No == poCashDisbNo)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoCashDisbursementDeleted(item);
 
@@ -3542,7 +3736,11 @@ namespace CanErp2
 
             var item = context.TblPoCashDisbursements
                               .Where(i => i.PO_CashDisb_No == poCashDisbNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoCashDisbursement);
             entry.State = EntityState.Modified;
@@ -3559,6 +3757,11 @@ namespace CanErp2
                               .Where(i => i.POStatus_ID == poStatusId)
                               .Include(i => i.TblPoPurchaseOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoOrderStatusDeleted(item);
 
@@ -3600,7 +3803,11 @@ namespace CanErp2
 
             var item = context.TblPoOrderStatuses
                               .Where(i => i.POStatus_ID == poStatusId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoOrderStatus);
             entry.State = EntityState.Modified;
@@ -3617,6 +3824,11 @@ namespace CanErp2
                               .Where(i => i.PO_ID == poId)
                               .Include(i => i.TblPoPurchaseOrderDetails)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoPurchaseOrderDeleted(item);
 
@@ -3676,7 +3888,11 @@ namespace CanErp2
 
             var item = context.TblPoPurchaseOrders
                               .Where(i => i.PO_ID == poId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoPurchaseOrder);
             entry.State = EntityState.Modified;
@@ -3692,6 +3908,11 @@ namespace CanErp2
             var item = context.TblPoPurchaseOrderDetails
                               .Where(i => i.PO_FK == poFk && i.Inventory_FK == inventoryFk)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoPurchaseOrderDetailDeleted(item);
 
@@ -3737,7 +3958,11 @@ namespace CanErp2
 
             var item = context.TblPoPurchaseOrderDetails
                               .Where(i => i.PO_FK == poFk && i.Inventory_FK == inventoryFk)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoPurchaseOrderDetail);
             entry.State = EntityState.Modified;
@@ -3754,6 +3979,11 @@ namespace CanErp2
                               .Where(i => i.RR_No == rrNo)
                               .Include(i => i.TblPoRrOrderDetails)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoRecReportDeleted(item);
 
@@ -3799,7 +4029,11 @@ namespace CanErp2
 
             var item = context.TblPoRecReports
                               .Where(i => i.RR_No == rrNo)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoRecReport);
             entry.State = EntityState.Modified;
@@ -3815,6 +4049,11 @@ namespace CanErp2
             var item = context.TblPoRrOrderDetails
                               .Where(i => i.RR_FK == rrFk && i.Inventory_FK == inventoryFk)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoRrOrderDetailDeleted(item);
 
@@ -3860,7 +4099,11 @@ namespace CanErp2
 
             var item = context.TblPoRrOrderDetails
                               .Where(i => i.RR_FK == rrFk && i.Inventory_FK == inventoryFk)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoRrOrderDetail);
             entry.State = EntityState.Modified;
@@ -3881,6 +4124,11 @@ namespace CanErp2
                               .Include(i => i.TblPoApInvoicesDetails)
                               .Include(i => i.TblPoRecReports)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblPoVendorDeleted(item);
 
@@ -3924,7 +4172,11 @@ namespace CanErp2
 
             var item = context.TblPoVendors
                               .Where(i => i.Vendor_ID == vendorId)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblPoVendor);
             entry.State = EntityState.Modified;
@@ -3941,6 +4193,11 @@ namespace CanErp2
                               .Where(i => i.Customer_SEQ == customerSeq)
                               .Include(i => i.TblSoSalesOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblSoCustomerDeleted(item);
 
@@ -3988,7 +4245,11 @@ namespace CanErp2
 
             var item = context.TblSoCustomers
                               .Where(i => i.Customer_SEQ == customerSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblSoCustomer);
             entry.State = EntityState.Modified;
@@ -4004,6 +4265,11 @@ namespace CanErp2
             var item = context.TblSoOrderDetails
                               .Where(i => i.SODetail_SEQ == soDetailSeq)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblSoOrderDetailDeleted(item);
 
@@ -4051,7 +4317,11 @@ namespace CanErp2
 
             var item = context.TblSoOrderDetails
                               .Where(i => i.SODetail_SEQ == soDetailSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblSoOrderDetail);
             entry.State = EntityState.Modified;
@@ -4068,6 +4338,11 @@ namespace CanErp2
                               .Where(i => i.SODetailStatus_SEQ == soDetailStatusSeq)
                               .Include(i => i.TblSoOrderDetails)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblSoOrderDetailStatusDeleted(item);
 
@@ -4109,7 +4384,11 @@ namespace CanErp2
 
             var item = context.TblSoOrderDetailStatuses
                               .Where(i => i.SODetailStatus_SEQ == soDetailStatusSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblSoOrderDetailStatus);
             entry.State = EntityState.Modified;
@@ -4126,6 +4405,11 @@ namespace CanErp2
                               .Where(i => i.SOStatus_SEQ == soStatusSeq)
                               .Include(i => i.TblSoSalesOrders)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblSoOrderStatusDeleted(item);
 
@@ -4167,7 +4451,11 @@ namespace CanErp2
 
             var item = context.TblSoOrderStatuses
                               .Where(i => i.SOStatus_SEQ == soStatusSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblSoOrderStatus);
             entry.State = EntityState.Modified;
@@ -4184,6 +4472,11 @@ namespace CanErp2
                               .Where(i => i.SO_SEQ == soSeq)
                               .Include(i => i.TblSoOrderDetails)
                               .FirstOrDefault();
+
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
 
             OnTblSoSalesOrderDeleted(item);
 
@@ -4235,7 +4528,11 @@ namespace CanErp2
 
             var item = context.TblSoSalesOrders
                               .Where(i => i.SO_SEQ == soSeq)
-                              .First();
+                              .FirstOrDefault();
+            if (item == null)
+            {
+               throw new Exception("Item no longer available");
+            }
             var entry = context.Entry(item);
             entry.CurrentValues.SetValues(tblSoSalesOrder);
             entry.State = EntityState.Modified;

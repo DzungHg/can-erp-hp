@@ -15,46 +15,46 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblSoOrderDetailsResult" TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="SODetail_SEQ" Title="SO Detail SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="SODetail_SEQ" Title="SO Detail SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="SODetailStatus_FK" SortProperty="TblSoOrderDetailStatus.SODetailStatusText" FilterProperty="TblSoOrderDetailStatus.SODetailStatusText" Title="Tbl So Order Detail Status">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="SODetailStatus_FK" SortProperty="TblSoOrderDetailStatus.SODetailStatusText" FilterProperty="TblSoOrderDetailStatus.SODetailStatusText" Title="Tbl So Order Detail Status">
               <Template Context="data">
               @(data.TblSoOrderDetailStatus?.SODetailStatusText)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="SO_FK" SortProperty="TblSoSalesOrder.SO_ID" FilterProperty="TblSoSalesOrder.SO_ID" Title="Tbl So Sales Order">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="SO_FK" SortProperty="TblSoSalesOrder.SO_ID" FilterProperty="TblSoSalesOrder.SO_ID" Title="Tbl So Sales Order">
               <Template Context="data">
               @(data.TblSoSalesOrder?.SO_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="Inventory_FK" SortProperty="TblIcInventory.Warehouse_FK" FilterProperty="TblIcInventory.Warehouse_FK" Title="Tbl Ic Inventory">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="Inventory_FK" SortProperty="TblIcInventory.Warehouse_FK" FilterProperty="TblIcInventory.Warehouse_FK" Title="Tbl Ic Inventory">
               <Template Context="data">
               @(data.TblIcInventory?.Warehouse_FK)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="UnitPrice" Title="Unit Price">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="UnitPrice" Title="Unit Price">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="QtyOnHand" Title="Qty On Hand">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="QtyOnHand" Title="Qty On Hand">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="QtyOrdered" Title="Qty Ordered">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="QtyOrdered" Title="Qty Ordered">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="QtyOrderedNow" Title="Qty Ordered Now">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="QtyOrderedNow" Title="Qty Ordered Now">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="QtyBackOrdered" Title="Qty Back Ordered">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="QtyBackOrdered" Title="Qty Back Ordered">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="QtyPicked" Title="Qty Picked">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="QtyPicked" Title="Qty Picked">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="SubTotal" Title="Sub Total">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="SubTotal" Title="Sub Total">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="DiscountPercent" Title="Discount Percent">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="DiscountPercent" Title="Discount Percent">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="Discount" Title="Discount">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="Discount" Title="Discount">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="TaxRate" Title="Tax Rate">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="TaxRate" Title="Tax Rate">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Property="Tax" Title="Tax">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Property="Tax" Title="Tax">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Context="canErp2ModelsDbAtVdc2TblSoOrderDetail" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblSoOrderDetail" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblSoOrderDetail">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblSoOrderDetail))" @onclick:stopPropagation="true">
                 </RadzenButton>

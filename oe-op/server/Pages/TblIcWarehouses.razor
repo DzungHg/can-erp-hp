@@ -15,15 +15,15 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblIcWarehousesResult" TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Context="canErp2ModelsDbAtVdc2TblIcWarehouse" Property="Warehouse_ID" Title="Warehouse ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Property="Warehouse_ID" Title="Warehouse ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Context="canErp2ModelsDbAtVdc2TblIcWarehouse" Property="WarehouseName" Title="Warehouse Name">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Property="WarehouseName" Title="Warehouse Name">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Context="canErp2ModelsDbAtVdc2TblIcWarehouse" Property="WarehouseAddress" Title="Warehouse Address">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Property="WarehouseAddress" Title="Warehouse Address">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Context="canErp2ModelsDbAtVdc2TblIcWarehouse" Property="Inactive" Title="Inactive">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Property="Inactive" Title="Inactive">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Context="canErp2ModelsDbAtVdc2TblIcWarehouse" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcWarehouse" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblIcWarehouse">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblIcWarehouse))" @onclick:stopPropagation="true">
                 </RadzenButton>

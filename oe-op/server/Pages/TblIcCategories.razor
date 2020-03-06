@@ -15,13 +15,13 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblIcCategoriesResult" TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Context="canErp2ModelsDbAtVdc2TblIcCategory" Property="Category_ID" Title="Category ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Property="Category_ID" Title="Category ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Context="canErp2ModelsDbAtVdc2TblIcCategory" Property="CategoryText" Title="Category Text">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Property="CategoryText" Title="Category Text">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Context="canErp2ModelsDbAtVdc2TblIcCategory" Property="Inactive" Title="Inactive">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Property="Inactive" Title="Inactive">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Context="canErp2ModelsDbAtVdc2TblIcCategory" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblIcCategory" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblIcCategory">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblIcCategory))" @onclick:stopPropagation="true">
                 </RadzenButton>

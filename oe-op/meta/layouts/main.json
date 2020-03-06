@@ -70,10 +70,57 @@
               "text": "Đơn Hàng"
             },
             {
+              "items": [
+                {
+                  "icon": "",
+                  "path": "tbl-po-purchase-orders",
+                  "text": "DS Đơn Mua"
+                }
+              ],
               "text": "Mua Hàng"
             },
             {
-              "text": "Cài Đặt"
+              "items": [
+                {
+                  "icon": "",
+                  "path": "tbl-so-customers",
+                  "text": "Khách hàng"
+                },
+                {
+                  "icon": "",
+                  "path": "tbl-gn-address-books",
+                  "text": "Address Book"
+                }
+              ],
+              "text": "Khách hàng"
+            },
+            {
+              "items": [
+                {
+                  "icon": "",
+                  "path": "tbl-ic-warehouses",
+                  "text": "DS Kho"
+                },
+                {
+                  "path": "tbl-gn-products",
+                  "text": "DS Hàng hóa"
+                }
+              ],
+              "text": "Kho & NVL"
+            },
+            {
+              "items": [
+                {
+                  "icon": "",
+                  "path": "tbl-gn-incoterms",
+                  "text": "Incoterms"
+                },
+                {
+                  "path": "tbl-gn-payment-terms",
+                  "text": "ĐK Thanh toán"
+                }
+              ],
+              "text": "Cài đặt chung"
             }
           ],
           "name": "panelmenu0",

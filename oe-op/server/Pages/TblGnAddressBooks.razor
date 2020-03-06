@@ -16,44 +16,44 @@
         </RadzenButton>
         <RadzenGrid @ref="grid0" AllowFiltering="true" AllowPaging="true" AllowSorting="true" Data="@getTblGnAddressBooksResult" TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" RowSelect="@Grid0RowSelect">
           <Columns>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="AddressBook_SEQ" Title="Address Book SEQ">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="AddressBook_SEQ" Title="Address Book SEQ">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="AddressBook_ID" Title="Address Book ID">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="AddressBook_ID" Title="Address Book ID">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="AddressBookType_FK" SortProperty="TblGnAddressBookType.AddressBookType_ID" FilterProperty="TblGnAddressBookType.AddressBookType_ID" Title="Tbl Gn Address Book Type">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="AddressBookType_FK" SortProperty="TblGnAddressBookType.AddressBookType_ID" FilterProperty="TblGnAddressBookType.AddressBookType_ID" Title="Tbl Gn Address Book Type">
               <Template Context="data">
               @(data.TblGnAddressBookType?.AddressBookType_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="LastName" Title="Last Name">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="LastName" Title="Last Name">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="FirstName" Title="First Name">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="FirstName" Title="First Name">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="Gender_FK" SortProperty="TblGnGender.Gender_ID" FilterProperty="TblGnGender.Gender_ID" Title="Tbl Gn Gender">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="Gender_FK" SortProperty="TblGnGender.Gender_ID" FilterProperty="TblGnGender.Gender_ID" Title="Tbl Gn Gender">
               <Template Context="data">
               @(data.TblGnGender?.Gender_ID)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="DOB" FormatString="{0:MM/dd/yyyy}" Title="DOB">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="DOB" FormatString="{0:MM/dd/yyyy}" Title="DOB">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="Origin" Title="Origin">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="Origin" Title="Origin">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="IDNumber" Title="ID Number">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="IDNumber" Title="ID Number">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="TaxIDNumber" Title="Tax ID Number">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="TaxIDNumber" Title="Tax ID Number">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="OrganizationName" Title="Organization Name">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="OrganizationName" Title="Organization Name">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="JobPosition" Title="Job Position">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="JobPosition" Title="Job Position">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="Address" Title="Address">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="Address" Title="Address">
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Property="City_FK" SortProperty="TblHpTinhTp.TinhTP_Name" FilterProperty="TblHpTinhTp.TinhTP_Name" Title="Tbl Hp Tinh Tp">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Property="City_FK" SortProperty="TblHpTinhTp.TinhTP_Name" FilterProperty="TblHpTinhTp.TinhTP_Name" Title="Tbl Hp Tinh Tp">
               <Template Context="data">
               @(data.TblHpTinhTp?.TinhTP_Name)
               </Template>
             </RadzenGridColumn>
-            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Context="canErp2ModelsDbAtVdc2TblGnAddressBook" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
+            <RadzenGridColumn TItem="CanErp2.Models.DbAtVdc2.TblGnAddressBook" Filterable="false" Sortable="false" Width="70px" TextAlign="TextAlign.Center">
               <Template Context="canErp2ModelsDbAtVdc2TblGnAddressBook">
                 <RadzenButton ButtonStyle="ButtonStyle.Danger" Icon="close" Size="ButtonSize.Small" Click="@((args) =>GridDeleteButtonClick(args, canErp2ModelsDbAtVdc2TblGnAddressBook))" @onclick:stopPropagation="true">
                 </RadzenButton>
