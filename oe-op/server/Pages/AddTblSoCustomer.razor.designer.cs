@@ -131,6 +131,11 @@ namespace CanErp2.Pages
             }
         }
 
+        protected async System.Threading.Tasks.Task CustomerAdressBookFkChange(dynamic args)
+        {
+            FillSomeDatas(tblsocustomer.CustomerAdressBook_FK);
+        }
+
         protected async System.Threading.Tasks.Task Button2Click(MouseEventArgs args)
         {
             DialogService.Close(null);

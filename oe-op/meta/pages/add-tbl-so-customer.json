@@ -1,1212 +1,1233 @@
 {
   "components": [
     {
-      "type": "content",
-      "container": "main",
       "components": [
         {
-          "type": "row",
           "components": [
             {
-              "type": "col",
               "class": "col-md-12",
               "components": [
                 {
-                  "type": "template-form",
-                  "name": "form0",
                   "components": [
                     {
-                      "type": "row",
-                      "style": {
-                        "marginBottom": "1rem"
-                      },
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Customer Id",
                               "component": "Customer_ID",
                               "name": "Customer_IDLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Mã khách hàng",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "string",
                               "maxLength": 10,
-                              "type": "textbox",
-                              "name": "Customer_ID",
+                              "name": "Mã khách hàng",
+                              "placeholder": "${InitCustomerID}",
+                              "readOnly": true,
                               "style": {
                                 "display": "block",
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Customer_ID}"
+                              "type": "textbox",
+                              "value": "${InitCustomerID}",
+                              "valueType": "string"
                             },
                             {
-                              "type": "required-validator",
-                              "name": "Customer_IDRequiredValidator",
                               "component": "Customer_ID",
-                              "text": "Customer_ID is required",
+                              "name": "Customer_IDRequiredValidator",
                               "style": {
                                 "position": "absolute"
-                              }
+                              },
+                              "text": "Customer_ID is required",
+                              "type": "required-validator"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Last Name",
                               "component": "LastName",
                               "name": "LastNameLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Họ",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "string",
                               "maxLength": 50,
-                              "type": "textbox",
                               "name": "LastName",
+                              "placeholder": "Họ",
+                              "readOnly": true,
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LastName}"
+                              "type": "textbox",
+                              "value": "${InitCustLastName}",
+                              "valueType": "string"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "First Name",
                               "component": "FirstName",
                               "name": "FirstNameLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Tên",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "string",
                               "maxLength": 50,
-                              "type": "textbox",
                               "name": "FirstName",
+                              "placeholder": "Tên",
+                              "readOnly": true,
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.FirstName}"
+                              "type": "textbox",
+                              "value": "${InitCustFirstName}",
+                              "valueType": "string"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Tbl Gn Address Book",
                               "component": "CustomerAdressBook_FK",
                               "name": "CustomerAdressBook_FKLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Tbl Gn Address Book",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
                               "data": "${getTblGnAddressBooksResult}",
-                              "textProperty": "AddressBook_ID",
-                              "valueProperty": "AddressBook_SEQ",
-                              "placeholder": "Choose TblGnAddressBook",
-                              "valueType": "int?",
-                              "type": "dropdown",
+                              "events": {
+                                "change": [
+                                  {
+                                    "name": "FillSomeDatas",
+                                    "parameters": [
+                                      {
+                                        "name": "contactID",
+                                        "type": "int?",
+                                        "value": "${tblsocustomer.CustomerAdressBook_FK}"
+                                      }
+                                    ],
+                                    "schema": {
+                                      "$ref": "#/definitions/Void",
+                                      "dotnetType": "void"
+                                    },
+                                    "then": [],
+                                    "type": "invoke-method"
+                                  }
+                                ]
+                              },
                               "name": "CustomerAdressBook_FK",
+                              "placeholder": "Choose TblGnAddressBook",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.CustomerAdressBook_FK}"
+                              "textProperty": "AddressBook_ID",
+                              "type": "dropdown",
+                              "value": "${tblsocustomer.CustomerAdressBook_FK}",
+                              "valueProperty": "AddressBook_SEQ",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Credit Limit",
                               "component": "CreditLimit",
                               "name": "CreditLimitLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Credit Limit",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "CreditLimit",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.CreditLimit}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.CreditLimit}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Last Revised Credit Limit Date",
                               "component": "LastRevisedCreditLimitDate",
                               "name": "LastRevisedCreditLimitDateLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Last Revised Credit Limit Date",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "DateTime?",
                               "dateFormat": "dd/MM/yyyy",
-                              "type": "datepicker",
                               "name": "LastRevisedCreditLimitDate",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LastRevisedCreditLimitDate}"
+                              "type": "datepicker",
+                              "value": "${tblsocustomer.LastRevisedCreditLimitDate}",
+                              "valueType": "DateTime?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Tbl Gn Payment Term",
                               "component": "PaymentTerm_FK",
                               "name": "PaymentTerm_FKLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Tbl Gn Payment Term",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
                               "data": "${getTblGnPaymentTermsResult}",
-                              "textProperty": "PaymentTerm_ID",
-                              "valueProperty": "PaymentTerm_SEQ",
-                              "placeholder": "Choose TblGnPaymentTerm",
-                              "valueType": "int?",
-                              "type": "dropdown",
                               "name": "PaymentTerm_FK",
+                              "placeholder": "Choose TblGnPaymentTerm",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.PaymentTerm_FK}"
+                              "textProperty": "PaymentTerm_ID",
+                              "type": "dropdown",
+                              "value": "${tblsocustomer.PaymentTerm_FK}",
+                              "valueProperty": "PaymentTerm_SEQ",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Tbl Gn Payment Type",
                               "component": "PaymentType_FK",
                               "name": "PaymentType_FKLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Tbl Gn Payment Type",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
                               "data": "${getTblGnPaymentTypesResult}",
-                              "textProperty": "PaymentType_ID",
-                              "valueProperty": "PaymentType_SEQ",
-                              "placeholder": "Choose TblGnPaymentType",
-                              "valueType": "int?",
-                              "type": "dropdown",
                               "name": "PaymentType_FK",
+                              "placeholder": "Choose TblGnPaymentType",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.PaymentType_FK}"
+                              "textProperty": "PaymentType_ID",
+                              "type": "dropdown",
+                              "value": "${tblsocustomer.PaymentType_FK}",
+                              "valueProperty": "PaymentType_SEQ",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Discount Percent",
                               "component": "DiscountPercent",
                               "name": "DiscountPercentLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Discount Percent",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "int?",
-                              "type": "numeric",
                               "name": "DiscountPercent",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.DiscountPercent}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.DiscountPercent}",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Current Mtd Sales",
                               "component": "Current_MTD_Sales",
                               "name": "Current_MTD_SalesLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Current Mtd Sales",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "Current_MTD_Sales",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Current_MTD_Sales}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.Current_MTD_Sales}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Current Mtd Returns",
                               "component": "Current_MTD_Returns",
                               "name": "Current_MTD_ReturnsLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Current Mtd Returns",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "Current_MTD_Returns",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Current_MTD_Returns}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.Current_MTD_Returns}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Ytd Gross Sales",
                               "component": "YTD_GrossSales",
                               "name": "YTD_GrossSalesLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Ytd Gross Sales",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "YTD_GrossSales",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.YTD_GrossSales}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.YTD_GrossSales}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Ytd Returns",
                               "component": "YTD_Returns",
                               "name": "YTD_ReturnsLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Ytd Returns",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "YTD_Returns",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.YTD_Returns}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.YTD_Returns}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Ytd Cogs",
                               "component": "YTD_COGS",
                               "name": "YTD_COGSLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Ytd Cogs",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "YTD_COGS",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.YTD_COGS}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.YTD_COGS}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Lyr Gross Sales",
                               "component": "LYR_GrossSales",
                               "name": "LYR_GrossSalesLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Lyr Gross Sales",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "LYR_GrossSales",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LYR_GrossSales}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.LYR_GrossSales}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Lyr Cogs",
                               "component": "LYR_COGS",
                               "name": "LYR_COGSLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Lyr Cogs",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "LYR_COGS",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LYR_COGS}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.LYR_COGS}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Last Amount Sales",
                               "component": "LastAmountSales",
                               "name": "LastAmountSalesLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Last Amount Sales",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "LastAmountSales",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LastAmountSales}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.LastAmountSales}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Sales Person Adress Book Fk",
                               "component": "SalesPersonAdressBook_FK",
                               "name": "SalesPersonAdressBook_FKLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Sales Person Adress Book Fk",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "int?",
-                              "type": "numeric",
                               "name": "SalesPersonAdressBook_FK",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.SalesPersonAdressBook_FK}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.SalesPersonAdressBook_FK}",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Commission Percent",
                               "component": "CommissionPercent",
                               "name": "CommissionPercentLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Commission Percent",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "CommissionPercent",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.CommissionPercent}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.CommissionPercent}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Sales Person Mtd Goal",
                               "component": "SalesPerson_MTD_Goal",
                               "name": "SalesPerson_MTD_GoalLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Sales Person Mtd Goal",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "SalesPerson_MTD_Goal",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.SalesPerson_MTD_Goal}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.SalesPerson_MTD_Goal}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Sales Person Ytd Goal",
                               "component": "SalesPerson_YTD_Goal",
                               "name": "SalesPerson_YTD_GoalLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Sales Person Ytd Goal",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "SalesPerson_YTD_Goal",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.SalesPerson_YTD_Goal}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.SalesPerson_YTD_Goal}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Charge Interest",
                               "component": "ChargeInterest",
                               "name": "ChargeInterestLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Charge Interest",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "bool?",
-                              "type": "checkbox",
                               "name": "ChargeInterest",
                               "triState": true,
-                              "value": "${tblsocustomer.ChargeInterest}"
+                              "type": "checkbox",
+                              "value": "${tblsocustomer.ChargeInterest}",
+                              "valueType": "bool?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Statement",
                               "component": "Statement",
                               "name": "StatementLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Statement",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "bool?",
-                              "type": "checkbox",
                               "name": "Statement",
                               "triState": true,
-                              "value": "${tblsocustomer.Statement}"
+                              "type": "checkbox",
+                              "value": "${tblsocustomer.Statement}",
+                              "valueType": "bool?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Aging 30 Day Amout",
                               "component": "Aging30DayAmout",
                               "name": "Aging30DayAmoutLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Aging 30 Day Amout",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "Aging30DayAmout",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Aging30DayAmout}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.Aging30DayAmout}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Aging 60 Day Amout",
                               "component": "Aging60DayAmout",
                               "name": "Aging60DayAmoutLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Aging 60 Day Amout",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "Aging60DayAmout",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Aging60DayAmout}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.Aging60DayAmout}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Aging 90 Day Amout",
                               "component": "Aging90DayAmout",
                               "name": "Aging90DayAmoutLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Aging 90 Day Amout",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "decimal?",
-                              "type": "numeric",
                               "name": "Aging90DayAmout",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Aging90DayAmout}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.Aging90DayAmout}",
+                              "valueType": "decimal?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Notes",
                               "component": "Notes",
                               "name": "NotesLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Notes",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "string",
-                              "type": "textbox",
                               "name": "Notes",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.Notes}"
+                              "type": "textbox",
+                              "value": "${tblsocustomer.Notes}",
+                              "valueType": "string"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Last Updated Date",
                               "component": "LastUpdatedDate",
                               "name": "LastUpdatedDateLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Last Updated Date",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "DateTime?",
                               "dateFormat": "dd/MM/yyyy",
-                              "type": "datepicker",
                               "name": "LastUpdatedDate",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LastUpdatedDate}"
+                              "type": "datepicker",
+                              "value": "${tblsocustomer.LastUpdatedDate}",
+                              "valueType": "DateTime?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Last Udpated By",
                               "component": "LastUdpatedBy",
                               "name": "LastUdpatedByLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Last Udpated By",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "int?",
-                              "type": "numeric",
                               "name": "LastUdpatedBy",
                               "style": {
                                 "width": "100%"
                               },
-                              "value": "${tblsocustomer.LastUdpatedBy}"
+                              "type": "numeric",
+                              "value": "${tblsocustomer.LastUdpatedBy}",
+                              "valueType": "int?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
-                    },
-                    {
-                      "type": "row",
+                      ],
                       "style": {
                         "marginBottom": "1rem"
                       },
+                      "type": "row"
+                    },
+                    {
                       "components": [
                         {
-                          "type": "col",
                           "class": "col-md-3",
                           "components": [
                             {
-                              "type": "label",
-                              "text": "Inactive",
                               "component": "Inactive",
                               "name": "InactiveLabel",
                               "style": {
                                 "width": "100%"
-                              }
+                              },
+                              "text": "Inactive",
+                              "type": "label"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         },
                         {
-                          "type": "col",
                           "class": "col-md-9",
                           "components": [
                             {
-                              "valueType": "bool?",
-                              "type": "checkbox",
                               "name": "Inactive",
                               "triState": true,
-                              "value": "${tblsocustomer.Inactive}"
+                              "type": "checkbox",
+                              "value": "${tblsocustomer.Inactive}",
+                              "valueType": "bool?"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
+                      ],
+                      "style": {
+                        "marginBottom": "1rem"
+                      },
+                      "type": "row"
                     },
                     {
-                      "type": "row",
                       "components": [
                         {
-                          "type": "col",
                           "class": "col offset-sm-3",
                           "components": [
                             {
-                              "type": "button",
+                              "buttonStyle": "primary",
                               "buttonType": "submit",
                               "icon": "save",
                               "text": "Save",
-                              "buttonStyle": "primary"
+                              "type": "button"
                             },
                             {
-                              "type": "button",
                               "buttonStyle": "light",
-                              "text": "Cancel",
                               "events": {
                                 "click": [
                                   {
                                     "type": "close-popup"
                                   }
                                 ]
-                              }
+                              },
+                              "text": "Cancel",
+                              "type": "button"
                             }
-                          ]
+                          ],
+                          "type": "col"
                         }
-                      ]
+                      ],
+                      "type": "row"
                     }
                   ],
+                  "data": "${tblsocustomer}",
                   "events": {
                     "submit": [
                       {
@@ -1227,23 +1248,28 @@
                         ],
                         "then": [
                           {
-                            "type": "close-popup",
-                            "result": "${tblsocustomer}"
+                            "result": "${tblsocustomer}",
+                            "type": "close-popup"
                           }
                         ],
                         "type": "invoke"
                       }
                     ]
                   },
-                  "data": "${tblsocustomer}",
-                  "visible": "${tblsocustomer != null}",
-                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoCustomer"
+                  "itemType": "CanErp2.Models.DbAtVdc2.TblSoCustomer",
+                  "name": "form0",
+                  "type": "template-form",
+                  "visible": "${tblsocustomer != null}"
                 }
-              ]
+              ],
+              "type": "col"
             }
-          ]
+          ],
+          "type": "row"
         }
-      ]
+      ],
+      "container": "main",
+      "type": "content"
     }
   ],
   "events": {
@@ -1295,6 +1321,6 @@
       }
     ]
   },
-  "name": "Add Tbl So Customer",
-  "layout": "Main"
+  "layout": "Main",
+  "name": "Add Tbl So Customer"
 }
